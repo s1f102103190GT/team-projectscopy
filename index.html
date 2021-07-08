@@ -1,0 +1,1773 @@
+<html lang="ja" style="overflow-y: visible; height: auto;"><head><style>:root{--litepicker-container-months-color-bg: #fff;--litepicker-container-months-box-shadow-color: #ddd;--litepicker-footer-color-bg: #fafafa;--litepicker-footer-box-shadow-color: #ddd;--litepicker-tooltip-color-bg: #fff;--litepicker-month-header-color: #333;--litepicker-button-prev-month-color: #9e9e9e;--litepicker-button-next-month-color: #9e9e9e;--litepicker-button-prev-month-color-hover: #2196f3;--litepicker-button-next-month-color-hover: #2196f3;--litepicker-month-width: calc(var(--litepicker-day-width) * 7);--litepicker-month-weekday-color: #9e9e9e;--litepicker-month-week-number-color: #9e9e9e;--litepicker-day-width: 38px;--litepicker-day-color: #333;--litepicker-day-color-hover: #2196f3;--litepicker-is-today-color: #f44336;--litepicker-is-in-range-color: #bbdefb;--litepicker-is-locked-color: #9e9e9e;--litepicker-is-start-color: #fff;--litepicker-is-start-color-bg: #2196f3;--litepicker-is-end-color: #fff;--litepicker-is-end-color-bg: #2196f3;--litepicker-button-cancel-color: #fff;--litepicker-button-cancel-color-bg: #9e9e9e;--litepicker-button-apply-color: #fff;--litepicker-button-apply-color-bg: #2196f3;--litepicker-button-reset-color: #909090;--litepicker-button-reset-color-hover: #2196f3;--litepicker-highlighted-day-color: #333;--litepicker-highlighted-day-color-bg: #ffeb3b}.show-week-numbers{--litepicker-month-width: calc(var(--litepicker-day-width) * 8)}.litepicker{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-size:0.8em;display:none}.litepicker button{border:none;background:none}.litepicker .container__main{display:-webkit-box;display:-ms-flexbox;display:flex}.litepicker .container__months{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;background-color:var(--litepicker-container-months-color-bg);border-radius:5px;-webkit-box-shadow:0 0 5px var(--litepicker-container-months-box-shadow-color);box-shadow:0 0 5px var(--litepicker-container-months-box-shadow-color);width:calc(var(--litepicker-month-width) + 10px);-webkit-box-sizing:content-box;box-sizing:content-box}.litepicker .container__months.columns-2{width:calc((var(--litepicker-month-width) * 2) + 20px)}.litepicker .container__months.columns-3{width:calc((var(--litepicker-month-width) * 3) + 30px)}.litepicker .container__months.columns-4{width:calc((var(--litepicker-month-width) * 4) + 40px)}.litepicker .container__months.split-view .month-item-header .button-previous-month,.litepicker .container__months.split-view .month-item-header .button-next-month{visibility:visible}.litepicker .container__months .month-item{padding:5px;width:var(--litepicker-month-width);-webkit-box-sizing:content-box;box-sizing:content-box}.litepicker .container__months .month-item-header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;font-weight:500;padding:10px 5px;text-align:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:var(--litepicker-month-header-color)}.litepicker .container__months .month-item-header div{-webkit-box-flex:1;-ms-flex:1;flex:1}.litepicker .container__months .month-item-header div>.month-item-name{margin-right:5px}.litepicker .container__months .month-item-header div>.month-item-year{padding:0}.litepicker .container__months .month-item-header .reset-button{color:var(--litepicker-button-reset-color)}.litepicker .container__months .month-item-header .reset-button>svg{fill:var(--litepicker-button-reset-color)}.litepicker .container__months .month-item-header .reset-button *{pointer-events:none}.litepicker .container__months .month-item-header .reset-button:hover{color:var(--litepicker-button-reset-color-hover)}.litepicker .container__months .month-item-header .reset-button:hover>svg{fill:var(--litepicker-button-reset-color-hover)}.litepicker .container__months .month-item-header .button-previous-month,.litepicker .container__months .month-item-header .button-next-month{visibility:hidden;text-decoration:none;padding:3px 5px;border-radius:3px;-webkit-transition:color 0.3s, border 0.3s;transition:color 0.3s, border 0.3s;cursor:default}.litepicker .container__months .month-item-header .button-previous-month *,.litepicker .container__months .month-item-header .button-next-month *{pointer-events:none}.litepicker .container__months .month-item-header .button-previous-month{color:var(--litepicker-button-prev-month-color)}.litepicker .container__months .month-item-header .button-previous-month>svg,.litepicker .container__months .month-item-header .button-previous-month>img{fill:var(--litepicker-button-prev-month-color)}.litepicker .container__months .month-item-header .button-previous-month:hover{color:var(--litepicker-button-prev-month-color-hover)}.litepicker .container__months .month-item-header .button-previous-month:hover>svg{fill:var(--litepicker-button-prev-month-color-hover)}.litepicker .container__months .month-item-header .button-next-month{color:var(--litepicker-button-next-month-color)}.litepicker .container__months .month-item-header .button-next-month>svg,.litepicker .container__months .month-item-header .button-next-month>img{fill:var(--litepicker-button-next-month-color)}.litepicker .container__months .month-item-header .button-next-month:hover{color:var(--litepicker-button-next-month-color-hover)}.litepicker .container__months .month-item-header .button-next-month:hover>svg{fill:var(--litepicker-button-next-month-color-hover)}.litepicker .container__months .month-item-weekdays-row{display:-webkit-box;display:-ms-flexbox;display:flex;justify-self:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;color:var(--litepicker-month-weekday-color)}.litepicker .container__months .month-item-weekdays-row>div{padding:5px 0;font-size:85%;-webkit-box-flex:1;-ms-flex:1;flex:1;width:var(--litepicker-day-width);text-align:center}.litepicker .container__months .month-item:first-child .button-previous-month{visibility:visible}.litepicker .container__months .month-item:last-child .button-next-month{visibility:visible}.litepicker .container__months .month-item.no-previous-month .button-previous-month{visibility:hidden}.litepicker .container__months .month-item.no-next-month .button-next-month{visibility:hidden}.litepicker .container__days{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;justify-self:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:center;-webkit-box-sizing:content-box;box-sizing:content-box}.litepicker .container__days>div,.litepicker .container__days>a{padding:5px 0;width:var(--litepicker-day-width)}.litepicker .container__days .day-item{color:var(--litepicker-day-color);text-align:center;text-decoration:none;border-radius:3px;-webkit-transition:color 0.3s, border 0.3s;transition:color 0.3s, border 0.3s;cursor:default}.litepicker .container__days .day-item:hover{color:var(--litepicker-day-color-hover);-webkit-box-shadow:inset 0 0 0 1px var(--litepicker-day-color-hover);box-shadow:inset 0 0 0 1px var(--litepicker-day-color-hover)}.litepicker .container__days .day-item.is-today{color:var(--litepicker-is-today-color)}.litepicker .container__days .day-item.is-locked{color:var(--litepicker-is-locked-color)}.litepicker .container__days .day-item.is-locked:hover{color:var(--litepicker-is-locked-color);-webkit-box-shadow:none;box-shadow:none;cursor:default}.litepicker .container__days .day-item.is-in-range{background-color:var(--litepicker-is-in-range-color);border-radius:0}.litepicker .container__days .day-item.is-start-date{color:var(--litepicker-is-start-color);background-color:var(--litepicker-is-start-color-bg);border-top-left-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:0;border-bottom-right-radius:0}.litepicker .container__days .day-item.is-start-date.is-flipped{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:5px;border-bottom-right-radius:5px}.litepicker .container__days .day-item.is-end-date{color:var(--litepicker-is-end-color);background-color:var(--litepicker-is-end-color-bg);border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:5px;border-bottom-right-radius:5px}.litepicker .container__days .day-item.is-end-date.is-flipped{border-top-left-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:0;border-bottom-right-radius:0}.litepicker .container__days .day-item.is-start-date.is-end-date{border-top-left-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px}.litepicker .container__days .day-item.is-highlighted{color:var(--litepicker-highlighted-day-color);background-color:var(--litepicker-highlighted-day-color-bg)}.litepicker .container__days .week-number{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;color:var(--litepicker-month-week-number-color);font-size:85%}.litepicker .container__footer{text-align:right;padding:10px 5px;margin:0 5px;background-color:var(--litepicker-footer-color-bg);-webkit-box-shadow:inset 0px 3px 3px 0px var(--litepicker-footer-box-shadow-color);box-shadow:inset 0px 3px 3px 0px var(--litepicker-footer-box-shadow-color);border-bottom-left-radius:5px;border-bottom-right-radius:5px}.litepicker .container__footer .preview-date-range{margin-right:10px;font-size:90%}.litepicker .container__footer .button-cancel{background-color:var(--litepicker-button-cancel-color-bg);color:var(--litepicker-button-cancel-color);border:0;padding:3px 7px 4px;border-radius:3px}.litepicker .container__footer .button-cancel *{pointer-events:none}.litepicker .container__footer .button-apply{background-color:var(--litepicker-button-apply-color-bg);color:var(--litepicker-button-apply-color);border:0;padding:3px 7px 4px;border-radius:3px;margin-left:10px;margin-right:10px}.litepicker .container__footer .button-apply:disabled{opacity:0.7}.litepicker .container__footer .button-apply *{pointer-events:none}.litepicker .container__tooltip{position:absolute;margin-top:-4px;padding:4px 8px;border-radius:4px;background-color:var(--litepicker-tooltip-color-bg);-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.25);box-shadow:0 1px 3px rgba(0,0,0,0.25);white-space:nowrap;font-size:11px;pointer-events:none;visibility:hidden}.litepicker .container__tooltip:before{position:absolute;bottom:-5px;left:calc(50% - 5px);border-top:5px solid rgba(0,0,0,0.12);border-right:5px solid transparent;border-left:5px solid transparent;content:""}.litepicker .container__tooltip:after{position:absolute;bottom:-4px;left:calc(50% - 4px);border-top:4px solid var(--litepicker-tooltip-color-bg);border-right:4px solid transparent;border-left:4px solid transparent;content:""}
+</style><script type="text/javascript" async="" id="fjssync" src="https://hm.mieru-ca.com/service/js/mieruca-hm.js?v=1625753888671"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="//javascript:;"></script><script async="" src="https://cdn.microad.jp/js/track.js"></script><script src="https://connect.facebook.net/signals/config/933363614101799?v=2.9.43&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WJSNB5T"></script><script src="https://nexus.ensighten.com/uw-nihonhotel/mesm/serverComponent.php?r=871866241.6022432&amp;namespace=Bootstrapper&amp;staticJsPath=nexus.ensighten.com/uw-nihonhotel/mesm/code/&amp;publishedOn=Mon Mar 29 01:27:35 GMT 2021&amp;ClientID=2774&amp;PageID=https%3A%2F%2Fwww.mesm.jp%2F"></script>
+<!--Ensighten-->
+
+<script type="text/javascript" src="//nexus.ensighten.com/uw-nihonhotel/mesm/Bootstrap.js"></script><style type="text/css">#ensNotifyBanner {
+ box-sizing: border-box;
+ background: rgba(3, 24, 51, 0.9);
+ color: #fff;
+ opacity: 0.9;
+ text-align: left;
+ font-size: 14px;
+ width: calc(100% - 10px);
+ position:fixed;
+ bottom: 5px;
+ left: 5px;
+ right: 10px;
+ z-index: 1001;
+ border-radius: 5px;
+ padding: 20px 30px;
+ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+ font-size: 1.6rem;
+ line-height: 1.5;
+}
+
+#NotifyDescription {
+ float: left;
+ width: 70%;
+}
+
+#ensCloseBanner{
+ background-color: #fff;
+ color: #333;
+ width: 150px;
+ height: 40px;
+ font-size: 1.6rem;
+}
+
+#ensNotifyBanner div.ensButtons {
+ width: 25%;
+ margin-top: -50px
+}
+
+#ensModalWrapper #ensSave{
+ background-color: rgba(3, 24, 51, 0.9);
+}
+
+#ensModalWrapper .consentDescription{
+ display:none;
+}
+
+#ensModalWrapper{
+ background-color: rgb(220,220,220);
+ color: #000000;
+ width: 50%;
+ opacity: 0.9;
+ text-align: left;
+ border-radius: 10px;
+ border: none;
+ line-height: 1.2;
+}
+
+.ensModal hr {
+ margin-top: 10px;
+ margin-bottom: 10px;
+}
+
+.ensModal .ensTitle {
+ color: #777;
+ font-size: 0.9em;
+ font-weight: bold;
+ border-radius: 10px;
+}
+
+.ensToggleLabel {
+ font-size: 0.8em;
+ font-weight: bold;
+}
+
+.ensModal .description {
+ font-size: 0.6em;
+}
+
+#ensModalWrapper .ensButtons .button {
+ font-size: 0.8em;
+}
+
+@media screen and (max-width: 989px) {
+ #NotifyDescription {
+   width: 100%!important;
+   float: left;
+   clear: both;
+   margin-top: 20px;
+   margin-bottom: 10px;
+   font-size: 1.3rem;
+ }
+ #ensNotifyBanner div.ensButtons {
+   width: 70%;
+   margin-top: 0px;
+ }
+ #ensCloseBanner{
+   float: right!important;
+   clear: both!important;
+ }
+ #ensModalWrapper{
+   width: 70%;
+ }
+ .ensButtons {
+    text-align:center;
+    font-size: 1.3rem;
+ }
+ button#ensSave.button.raised.blue {
+    margin-left: 10px;
+    margin-right: 10px;
+ }
+ button#ensCancel.button.raised.grey {
+    margin-left: 10px;
+    margin-right: 10px;
+ }
+}
+label[for="Strictly Necessary CookiesSlide"] input[type='checkbox']:checked ~ .switch {
+    opacity: 0.4;
+}
+section {
+  margin-bottom: 0px!important;
+}</style>
+<!--End Ensignten-->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>メズム東京、オートグラフ コレクション: 2020年4月27日オープン</title>
+<meta name="description" content="東京を取り巻く空気感、人々の流れ、伝統と革新の融合、新しい価値基準など、絶えず変化する東京の“今”に根ざしたサービスやコンテンツを展開することにより、ゲストに新たな発見を提供する、次世代に向けたラグジュアリーなホテルです。">
+<meta name="twitter:description" content="東京を取り巻く空気感、人々の流れ、伝統と革新の融合、新しい価値基準など、絶えず変化する東京の“今”に根ざしたサービスやコンテンツを展開することにより、ゲストに新たな発見を提供する、次世代に向けたラグジュアリーなホテルです。">
+<meta name="og:description" content="東京を取り巻く空気感、人々の流れ、伝統と革新の融合、新しい価値基準など、絶えず変化する東京の“今”に根ざしたサービスやコンテンツを展開することにより、ゲストに新たな発見を提供する、次世代に向けたラグジュアリーなホテルです。">
+<!--OG TAG-->
+<!-- .twitter -->
+<meta name="twitter:title" content="メズム東京、オートグラフ コレクション: 2020年4月27日オープン">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@template">
+<meta name="twitter:image" content="/cmn/cmn_img/ogp.jpg">
+<meta name="twitter:url" content="https://www.mesm.jp/">
+<!-- .facebook -->
+<meta property="fb:app_id" content="">
+<meta property="og:title" content="メズム東京、オートグラフ コレクション: 2020年4月27日オープン">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/cmn/cmn_img/ogp.jpg">
+<meta property="og:url" content="https://www.mesm.jp/">
+<!-- .favicon -->
+<link rel="icon" href="/cmn/cmn_img/favicon.ico">
+
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "WebSite",
+"name": "メズム東京、オートグラフ コレクション: 2020年4月27日オープン",
+"url": "https://www.mesm.jp/",
+"image":"https://www.mesm.jp/cmn/cmn_img/ogp.jpg",
+"description":"東京を取り巻く空気感、人々の流れ、伝統と革新の融合、新しい価値基準など、絶えず変化する東京の“今”に根ざしたサービスやコンテンツを展開することにより、ゲストに新たな発見を提供する、次世代に向けたラグジュアリーなホテルです。"
+}
+</script>
+<link rel="stylesheet" href="/cmn/cmn_css/normalize.css" media="all">
+<link rel="stylesheet" href="/cmn/cmn_css/base.css" media="all">
+<link rel="stylesheet" href="/cmn/cmn_css/sp.css" media="all">
+<link rel="stylesheet" href="https://www.mesm.jp/cmn/cmn_css/top.css" media="all">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WJSNB5T');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '933363614101799'); 
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1" 
+src="https://www.facebook.com/tr?id=933363614101799&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+<script>
+  (function(w,d,j){var t='microAdUniverseTracker';w[t]=w[t]||{};w[t].track=w[t].track||function(){
+  (w[t].queue=w[t].queue||[]).push(arguments)};var s=d.createElement('script');s.async=true;s.src=j;
+  var fs=d.getElementsByTagName('script')[0];fs.parentNode.insertBefore(s,fs)})
+  (window,document,'https://cdn.microad.jp/js/track.js');
+
+  microAdUniverseTracker.track({
+    'service_id': 2018
+  });
+</script>
+
+<style type="text/css">.ensCenter{text-align: center;}#ensModalWrapper{border: 1px solid #333;position: fixed;max-width: 80%;border: 1px solid #000;display: none;box-shadow: 5px 5px 5px grey;background-color:#fff;padding: 20px 0;z-index: 9999;}.ensModal {font-family: Roboto, 'Helvetica Neue', Helvetica, Arial;}.ensModal input[type='checkbox'] {position: absolute !important;height: 1px; width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);white-space: nowrap; /* added line */}.ensModal input[type='checkbox']:not(:focus):not(:active) {}.ensModal input[type='checkbox']:checked ~ .toggle {background: #fff;left: 36px;transition: .5s;}.ensModal input[type='checkbox']:checked ~ .switch {background: #43A047;transition: .5s;}.ensModal .switch {display: block;width: 50px;height: 15px;background: #939393;border-radius: 10px;position: absolute;top: 0;transition: .5s;}.ensModal .toggle {height: 17px;width: 17px;border-radius: 50%;background: white;position: absolute;top: -2px;left: -2px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);transition: .5s;}.ensModal .card {display: inline-block;margin: 9px;margin: 5px;width: 50px;height: 20px;text-align: center;position: relative;float:right;}.ensModal{font-size: 18px;color: #333;padding: 20px;}.ensToggleRow{margin-bottom: 10px;}.ensToggleLabel{margin-right: 5px;}.ensButtons{clear: both;margin-top: 15px;float: right;}.ensButtons .button{display: inline-block;position: relative;width: 120px;height: 32px;border-radius: 2px;font-size: 0.9em;background-color: #fff;color: #646464;margin-left: 20px;}.ensButtons .button.grey {background-color: #eee;}.ensButtons .button.blue {background-color: #2b5cac;color: #fff;}.ensButtons .button.raised {transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);transition-delay: 0.2s;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);}.ensButtons .button.raised:active {box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);transition-delay: 0s;}.ensModal .ensTitle {margin:5px;width:95%;color: #74736F;position: absolute;top:-5px;left:-5px;padding-left:5%;padding-top:13px;padding-bottom: 3px;text-align: center;}.ensModal .consentDescription {color:#333;font-size: 14px;}.ensModal hr {color: #C5C5C5}.ensModal .description {max-width:600px;font-size: 12px;marin-top:15px;clear: both;}.chevron::before {border-style: solid;border-width: 2px 2px 0 0;content: '';display: inline-block;height: 8px;margin: 0 5px 2px 0;position: relative;width: 8px;}.chevron.right:before {transform: rotate(45deg);}.chevron.bottom:before {margin-left: 2px;margin-bottom: 3px;transform: rotate(135deg);}.ensModal .ensTagsContent {display: none;padding: 0 0 0 20px;}.ensModal .tagContainer {color: #676767;padding: 7px 0 7px 7px;font-size: 15px;}.contactInfoLink {display: block;margin-bottom: 4px;}.ensToggleRowWrapper {max-height: 400px;overflow: auto;}</style><style type="text/css">.ensNotifyBanner{background-color: #191B23;color: #EDEDED;opacity: 0.8;width:60%;border-radius: 10px;padding:20px;font-family: Roboto, 'Helvetica Neue', Helvetica, Arial;position: fixed;bottom:50px;display: none;z-index: 9999;}.ensButtons{clear: both;margin-top: 15px;float: right;}.ensButtons .button{display: inline-block;position: relative;width: 120px;height: 32px;border-radius: 2px;font-size: 0.9em;background-color: #fff;color: #646464;margin-left: 20px;text-align: center;}.ensButtons .button{cursor: pointer;}.ensButtons .button.grey {background-color: #eee;}.ensButtons .button.blue {background-color: #2b5cac;color: #fff;}.ensButtons .button.raised {transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);transition-delay: 0.2s;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);}.ensButtons .button.raised:active {box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);transition-delay: 0s;}.ensClear{ clear:both;}.ensModalLink{  cursor: pointer; text-decoration: underline;}.ensModalLink:hover{  color: #2b5cac;}</style></head>
+<body style="overflow-y: scroll; height: auto;" class="topStart throughHd">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJSNB5T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="loading" class="action2" style="display: none;">
+<div id="bar" style="display: none;"><span style="width: 100%;"></span></div>
+<p class="logo action action2"><img src="https://www.mesm.jp/cmn/cmn_img/img_logo.svg" alt="メズム東京、オートグラフコレクション"></p>
+
+<div class="waves">
+<div class="spHide">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgA"><path id="waveA11" d="M 0 95.03674826647155 C 128.6 39.75801539281803 128.6 39.75801539281803 257.2 67.39738182964477 C 385.79999999999995 95.03674826647155 385.79999999999995 95.03674826647155 514.4 68.97951829757082 C 643 42.922288328670106 643 42.922288328670106 771.6 97.15670716466089 C 900.2 151.3911260006517 900.2 151.3911260006517 1028.8 105.15296327013448 C 1157.3999999999999 58.91480053961727 1157.3999999999999 58.91480053961727 1286 82.47413610153501 L 1286 9467 L 0 9467 Z" fill="#FFF"></path></svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgA"><path id="waveA12" d="M 0 96.0305008708716 C 128.6 40.75216927746264 128.6 40.75216927746264 257.2 68.39133507416712 C 385.79999999999995 96.0305008708716 385.79999999999995 96.0305008708716 514.4 69.98371019366684 C 643 43.93691951646208 643 43.93691951646208 771.6 98.16417888934336 C 900.2 152.39143826222468 900.2 152.39143826222468 1028.8 106.15131126943197 C 1157.3999999999999 59.91118427663927 1157.3999999999999 59.91118427663927 1286 83.48176095602904 L 1286 9467 L 0 9467 Z" fill="#041932"></path></svg>
+</div>
+<div class="spDisp">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgA"><path id="waveA13" d="M 0 88.05111134940249 C 321.5 43.807975051449596 321.5 43.807975051449596 643 65.92954320042602 C 964.5 88.05111134940249 964.5 88.05111134940249 1286 65.92954320042602 L 1286 9467 L 0 9467 Z" fill="#FFF"></path></svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgA"><path id="waveA14" d="M 0 89.04165285990591 C 321.5 44.812561577699825 321.5 44.812561577699825 643 66.92710721880286 C 964.5 89.04165285990591 964.5 89.04165285990591 1286 66.92710721880286 L 1286 9467 L 0 9467 Z" fill="#041932"></path></svg>
+</div>
+
+<div class="bgWave12"></div>
+<div class="bgWave13"></div>
+</div>
+
+<div class="arrowWrap action action2">
+<div class="arrowInner">
+<p>scroll down</p>
+<div class="arrow"></div>
+</div>
+</div>
+
+</div>
+
+<div id="wrap" class="wrap" style="background-color: rgb(5, 25, 49);">
+<header id="header" class="header">
+<div class="inr">
+<p class="logo"><a href="/"><img src="/cmn/cmn_img/img_logo.svg" alt="メズム東京、オートグラフコレクション" width="140" height="31"></a></p>
+<div class="hdR">
+<ul id="gNav" class="over1200">
+<li class="li01 first"><a href="/news/">news</a></li>
+<li class="li02 even"><a href="/concept/">concept</a></li>
+<li class="li03"><a href="/guestroom/">guest room</a></li>
+<li class="li04 even"><a href="/restaurant/">restaurant &amp; bar</a></li>
+<li class="li05"><a href="/service/">service</a></li>
+<li class="li06 even"><a href="/showcase/">showcase</a></li>
+<li class="li07"><a href="/collaboration/">collaboration</a></li>
+<li class="li08 even"><a href="/access/">access</a></li>
+<li class="li09"><a href="/recruit/">recruit</a></li>
+<!--
+<li class="li09"><a href="/staff/">staff</a></li>
+-->
+<li class="li10 even"><a href="/contact/">contact</a></li>
+<li id="more" class="last"><span class="notA">view more</span>
+<ul id="moreUl">
+<li class="li01 first"><a href="/news/">news</a></li>
+<li class="li02 even"><a href="/concept/">concept</a></li>
+<li class="li03"><a href="/guestroom/">guest room</a></li>
+<li class="li04 even"><a href="/restaurant/">restaurant &amp; bar</a></li>
+<li class="li05"><a href="/service/">service</a></li>
+<li class="li06 even"><a href="/showcase/">showcase</a></li>
+<li class="li07"><a href="/collaboration/">collaboration</a></li>
+<li class="li08 even"><a href="/access/">access</a></li>
+<li class="li09"><a href="/recruit/">recruit</a></li>
+<!--
+<li class="li09"><a href="/staff/">staff</a></li>
+-->
+<li class="li10 even last"><a href="/contact/">contact</a></li>
+</ul>
+</li>
+</ul>
+<p><a class="bookNowSwitch">book<br><span> </span>now</a></p>
+</div>
+<div class="spMenuSet">
+<div id="nav-toggle">
+<div>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id="global-nav">
+<ul>
+<li class="li01 first"><a href="/news/">news</a></li>
+<li class="li02 even"><a href="/concept/">concept</a></li>
+<li class="li03"><a href="/guestroom/">guest room</a></li>
+<li class="li04 even"><a href="/restaurant/">restaurant &amp; bar</a></li>
+<li class="li05"><a href="/service/">service</a></li>
+<li class="li06 even"><a href="/showcase/">showcase</a></li>
+<li class="li07"><a href="/collaboration/">collaboration</a></li>
+<li class="li08 even"><a href="/access/">access</a></li>
+<li class="li09"><a href="/recruit/">recruit</a></li>
+<!--
+<li class="li09"><a href="/staff/">staff</a></li>
+-->
+<li class="li10 even last"><a href="/contact/">contact</a></li>
+</ul>
+</nav>
+<div id="nav-bg"></div>
+</div>
+</div>
+</header>
+<!--▲▲/#HEADER ▲▲-->
+
+<div class="megaMenu">
+<div class="inr">
+<p class="cName">book now</p>
+<div class="menu">
+<div class="menu-tab">
+<ul class="tab">
+<li class="tab-btn -active first">ご宿泊</li>
+<li class="tab-btn even last">お食事</li>
+</ul>
+<div class="tab-contents">
+<h2>RESERVATION <span>［メズム東京、オートグラフコレクション］</span></h2>
+<div class="calendar-stay"><div class="litepicker" data-plugins="" style="display: inline-block; position: relative;"><div class="container__main"><div class="container__months columns-2"><div class="month-item no-previous-month"><div class="month-item-header"><button type="button" class="button-previous-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M7.919 0l2.748 2.667L5.333 8l5.334 5.333L7.919 16 0 8z" fill-rule="nonzero"></path></svg></button><div><strong class="month-item-name">7月</strong><span class="month-item-year">2021</span></div><button type="button" class="button-next-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.748 16L0 13.333 5.333 8 0 2.667 2.748 0l7.919 8z" fill-rule="nonzero"></path></svg></button></div><div class="month-item-weekdays-row"><div title="月曜日">月</div><div title="火曜日">火</div><div title="水曜日">水</div><div title="木曜日">木</div><div title="金曜日">金</div><div title="土曜日">土</div><div title="日曜日">日</div></div><div class="container__days"><div></div><div></div><div></div><div class="day-item is-locked" data-time="1625065200000" tabindex="-1">1</div><div class="day-item is-locked" data-time="1625151600000" tabindex="-1">2</div><div class="day-item is-locked" data-time="1625238000000" tabindex="-1">3</div><div class="day-item is-locked" data-time="1625324400000" tabindex="-1">4</div><div class="day-item is-locked" data-time="1625410800000" tabindex="-1">5</div><div class="day-item is-locked" data-time="1625497200000" tabindex="-1">6</div><div class="day-item is-locked" data-time="1625583600000" tabindex="-1">7</div><div class="day-item is-today is-start-date" data-time="1625670000000" tabindex="0">8</div><div class="day-item is-end-date" data-time="1625756400000" tabindex="0">9</div><div class="day-item saturday" data-time="1625842800000" tabindex="0">10</div><div class="day-item sunday" data-time="1625929200000" tabindex="0">11</div><div class="day-item" data-time="1626015600000" tabindex="0">12</div><div class="day-item" data-time="1626102000000" tabindex="0">13</div><div class="day-item" data-time="1626188400000" tabindex="0">14</div><div class="day-item" data-time="1626274800000" tabindex="0">15</div><div class="day-item" data-time="1626361200000" tabindex="0">16</div><div class="day-item saturday" data-time="1626447600000" tabindex="0">17</div><div class="day-item sunday" data-time="1626534000000" tabindex="0">18</div><div class="day-item holiday" data-time="1626620400000" tabindex="0">19</div><div class="day-item" data-time="1626706800000" tabindex="0">20</div><div class="day-item" data-time="1626793200000" tabindex="0">21</div><div class="day-item" data-time="1626879600000" tabindex="0">22</div><div class="day-item" data-time="1626966000000" tabindex="0">23</div><div class="day-item saturday" data-time="1627052400000" tabindex="0">24</div><div class="day-item sunday" data-time="1627138800000" tabindex="0">25</div><div class="day-item" data-time="1627225200000" tabindex="0">26</div><div class="day-item" data-time="1627311600000" tabindex="0">27</div><div class="day-item" data-time="1627398000000" tabindex="0">28</div><div class="day-item" data-time="1627484400000" tabindex="0">29</div><div class="day-item" data-time="1627570800000" tabindex="0">30</div><div class="day-item saturday" data-time="1627657200000" tabindex="0">31</div></div></div><div class="month-item"><div class="month-item-header"><button type="button" class="button-previous-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M7.919 0l2.748 2.667L5.333 8l5.334 5.333L7.919 16 0 8z" fill-rule="nonzero"></path></svg></button><div><strong class="month-item-name">8月</strong><span class="month-item-year">2021</span></div><button type="button" class="button-next-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.748 16L0 13.333 5.333 8 0 2.667 2.748 0l7.919 8z" fill-rule="nonzero"></path></svg></button></div><div class="month-item-weekdays-row"><div title="月曜日">月</div><div title="火曜日">火</div><div title="水曜日">水</div><div title="木曜日">木</div><div title="金曜日">金</div><div title="土曜日">土</div><div title="日曜日">日</div></div><div class="container__days"><div></div><div></div><div></div><div></div><div></div><div></div><div class="day-item sunday" data-time="1627743600000" tabindex="0">1</div><div class="day-item" data-time="1627830000000" tabindex="0">2</div><div class="day-item" data-time="1627916400000" tabindex="0">3</div><div class="day-item" data-time="1628002800000" tabindex="0">4</div><div class="day-item" data-time="1628089200000" tabindex="0">5</div><div class="day-item" data-time="1628175600000" tabindex="0">6</div><div class="day-item saturday" data-time="1628262000000" tabindex="0">7</div><div class="day-item sunday" data-time="1628348400000" tabindex="0">8</div><div class="day-item" data-time="1628434800000" tabindex="0">9</div><div class="day-item" data-time="1628521200000" tabindex="0">10</div><div class="day-item holiday" data-time="1628607600000" tabindex="0">11</div><div class="day-item" data-time="1628694000000" tabindex="0">12</div><div class="day-item" data-time="1628780400000" tabindex="0">13</div><div class="day-item saturday" data-time="1628866800000" tabindex="0">14</div><div class="day-item sunday" data-time="1628953200000" tabindex="0">15</div><div class="day-item" data-time="1629039600000" tabindex="0">16</div><div class="day-item" data-time="1629126000000" tabindex="0">17</div><div class="day-item" data-time="1629212400000" tabindex="0">18</div><div class="day-item" data-time="1629298800000" tabindex="0">19</div><div class="day-item" data-time="1629385200000" tabindex="0">20</div><div class="day-item saturday" data-time="1629471600000" tabindex="0">21</div><div class="day-item sunday" data-time="1629558000000" tabindex="0">22</div><div class="day-item" data-time="1629644400000" tabindex="0">23</div><div class="day-item" data-time="1629730800000" tabindex="0">24</div><div class="day-item" data-time="1629817200000" tabindex="0">25</div><div class="day-item" data-time="1629903600000" tabindex="0">26</div><div class="day-item" data-time="1629990000000" tabindex="0">27</div><div class="day-item saturday" data-time="1630076400000" tabindex="0">28</div><div class="day-item sunday" data-time="1630162800000" tabindex="0">29</div><div class="day-item" data-time="1630249200000" tabindex="0">30</div><div class="day-item" data-time="1630335600000" tabindex="0">31</div></div></div></div></div><div class="container__tooltip"></div></div></div>
+<form action="https://secure.reservation.jp/jrhotel-m/stay_pc/rsv/rsv_src_pln.aspx" method="get" target="_blank" class="form-stay">
+<!-- 言語（日本語"ja-JP",英語"en-US",韓国語"ko-KR",中国語(簡体字)"zh-CN",中国語(繁体字)"zh-TW"） -->
+<input type="hidden" name="lang" value="ja-JP">
+<input type="hidden" name="std" value="">
+<!-- 単体ホテルの場合 -->
+<input type="hidden" name="hi_id" value="86">
+<!-- 検索方法（プラン毎"0",部屋毎"1",料金毎"3",カレンダー"4"） -->
+<input type="hidden" name="st" value="0">
+<!-- 泊数 -->
+<input type="hidden" name="le" value="" class="stay-night">
+<div class="stay-form">
+<div class="stay-form-item">
+<label>チェックイン</label>
+<input type="input" class="stay-checkin" readonly="readonly" name="dt">
+</div>
+<div class="stay-form-item">
+<label>チェックアウト</label>
+<input type="input" class="stay-checkout" readonly="readonly">
+</div>
+<div class="stay-form-item">
+<label>部屋</label>
+<select name="rc" class="stay-room">
+<option value="1" selected="selected">1室</option>
+<option value="2">2室</option>
+<option value="3">3室</option>
+</select>
+</div>
+<div class="stay-form-item">
+<label>人数</label>
+<select name="mc" class="stay-guests">
+<option value="1">1名</option>
+<option value="2" selected="selected">2名</option>
+</select>
+</div>
+<div class="stay-form-item sf-wrap-submit">
+<input type="submit" class="stay-submit" value="予約">
+</div>
+</div>
+<div class="jrhotel-m">
+<span><a href="https://secure.reservation.jp/jrhotel-m/stay_pc/rsv/mem_lgn.aspx?lang=ja-JP" target="_blank">JRホテルメンバーズ</a></span>
+<span><a href="https://secure.reservation.jp/jrhotel-m/stay_pc/rsv/cnf_rsv_ent.aspx?hi_id=86&amp;lang=ja-JP" target="_blank">予約の確認・変更・キャンセル</a></span>
+</div>
+</form>
+<div class="reservation-info">
+<div>
+<h3>メズム東京、オートグラフコレクション</h3>
+<address>〒105-0022 東京都港区海岸1丁目10-30</address>
+</div>
+<div>
+<h4>お問い合わせ／ご予約</h4>
+<div class="reservation-info-link">
+<span class="tel">TEL：<a href="tel:03-5777-1111" target="_blank">03-5777-1111</a></span>
+<span class="mail"><a href="https://www.mesm.jp/contact/?mode=1" target="_blank">メールでのお問い合わせ</a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-contents" style="opacity: 0; height: 0px;">
+<h2>RESERVATION <span>［メズム東京、オートグラフコレクション］</span></h2>
+<div class="calendar-restaurant"><div class="litepicker" data-plugins="" style="display: inline-block; position: relative;"><div class="container__main"><div class="container__months columns-2"><div class="month-item no-previous-month"><div class="month-item-header"><button type="button" class="button-previous-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M7.919 0l2.748 2.667L5.333 8l5.334 5.333L7.919 16 0 8z" fill-rule="nonzero"></path></svg></button><div><strong class="month-item-name">7月</strong><span class="month-item-year">2021</span></div><button type="button" class="button-next-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.748 16L0 13.333 5.333 8 0 2.667 2.748 0l7.919 8z" fill-rule="nonzero"></path></svg></button></div><div class="month-item-weekdays-row"><div title="月曜日">月</div><div title="火曜日">火</div><div title="水曜日">水</div><div title="木曜日">木</div><div title="金曜日">金</div><div title="土曜日">土</div><div title="日曜日">日</div></div><div class="container__days"><div></div><div></div><div></div><div class="day-item is-locked" data-time="1625065200000" tabindex="-1">1</div><div class="day-item is-locked" data-time="1625151600000" tabindex="-1">2</div><div class="day-item is-locked" data-time="1625238000000" tabindex="-1">3</div><div class="day-item is-locked" data-time="1625324400000" tabindex="-1">4</div><div class="day-item is-locked" data-time="1625410800000" tabindex="-1">5</div><div class="day-item is-locked" data-time="1625497200000" tabindex="-1">6</div><div class="day-item is-locked" data-time="1625583600000" tabindex="-1">7</div><div class="day-item is-today is-start-date is-end-date" data-time="1625670000000" tabindex="0">8</div><div class="day-item" data-time="1625756400000" tabindex="0">9</div><div class="day-item saturday" data-time="1625842800000" tabindex="0">10</div><div class="day-item sunday" data-time="1625929200000" tabindex="0">11</div><div class="day-item" data-time="1626015600000" tabindex="0">12</div><div class="day-item" data-time="1626102000000" tabindex="0">13</div><div class="day-item" data-time="1626188400000" tabindex="0">14</div><div class="day-item" data-time="1626274800000" tabindex="0">15</div><div class="day-item" data-time="1626361200000" tabindex="0">16</div><div class="day-item saturday" data-time="1626447600000" tabindex="0">17</div><div class="day-item sunday" data-time="1626534000000" tabindex="0">18</div><div class="day-item holiday" data-time="1626620400000" tabindex="0">19</div><div class="day-item" data-time="1626706800000" tabindex="0">20</div><div class="day-item" data-time="1626793200000" tabindex="0">21</div><div class="day-item" data-time="1626879600000" tabindex="0">22</div><div class="day-item" data-time="1626966000000" tabindex="0">23</div><div class="day-item saturday" data-time="1627052400000" tabindex="0">24</div><div class="day-item sunday" data-time="1627138800000" tabindex="0">25</div><div class="day-item" data-time="1627225200000" tabindex="0">26</div><div class="day-item" data-time="1627311600000" tabindex="0">27</div><div class="day-item" data-time="1627398000000" tabindex="0">28</div><div class="day-item" data-time="1627484400000" tabindex="0">29</div><div class="day-item" data-time="1627570800000" tabindex="0">30</div><div class="day-item saturday" data-time="1627657200000" tabindex="0">31</div></div></div><div class="month-item"><div class="month-item-header"><button type="button" class="button-previous-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M7.919 0l2.748 2.667L5.333 8l5.334 5.333L7.919 16 0 8z" fill-rule="nonzero"></path></svg></button><div><strong class="month-item-name">8月</strong><span class="month-item-year">2021</span></div><button type="button" class="button-next-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.748 16L0 13.333 5.333 8 0 2.667 2.748 0l7.919 8z" fill-rule="nonzero"></path></svg></button></div><div class="month-item-weekdays-row"><div title="月曜日">月</div><div title="火曜日">火</div><div title="水曜日">水</div><div title="木曜日">木</div><div title="金曜日">金</div><div title="土曜日">土</div><div title="日曜日">日</div></div><div class="container__days"><div></div><div></div><div></div><div></div><div></div><div></div><div class="day-item sunday" data-time="1627743600000" tabindex="0">1</div><div class="day-item" data-time="1627830000000" tabindex="0">2</div><div class="day-item" data-time="1627916400000" tabindex="0">3</div><div class="day-item" data-time="1628002800000" tabindex="0">4</div><div class="day-item" data-time="1628089200000" tabindex="0">5</div><div class="day-item" data-time="1628175600000" tabindex="0">6</div><div class="day-item saturday" data-time="1628262000000" tabindex="0">7</div><div class="day-item sunday" data-time="1628348400000" tabindex="0">8</div><div class="day-item" data-time="1628434800000" tabindex="0">9</div><div class="day-item" data-time="1628521200000" tabindex="0">10</div><div class="day-item holiday" data-time="1628607600000" tabindex="0">11</div><div class="day-item" data-time="1628694000000" tabindex="0">12</div><div class="day-item" data-time="1628780400000" tabindex="0">13</div><div class="day-item saturday" data-time="1628866800000" tabindex="0">14</div><div class="day-item sunday" data-time="1628953200000" tabindex="0">15</div><div class="day-item" data-time="1629039600000" tabindex="0">16</div><div class="day-item" data-time="1629126000000" tabindex="0">17</div><div class="day-item" data-time="1629212400000" tabindex="0">18</div><div class="day-item" data-time="1629298800000" tabindex="0">19</div><div class="day-item" data-time="1629385200000" tabindex="0">20</div><div class="day-item saturday" data-time="1629471600000" tabindex="0">21</div><div class="day-item sunday" data-time="1629558000000" tabindex="0">22</div><div class="day-item" data-time="1629644400000" tabindex="0">23</div><div class="day-item" data-time="1629730800000" tabindex="0">24</div><div class="day-item" data-time="1629817200000" tabindex="0">25</div><div class="day-item" data-time="1629903600000" tabindex="0">26</div><div class="day-item" data-time="1629990000000" tabindex="0">27</div><div class="day-item saturday" data-time="1630076400000" tabindex="0">28</div><div class="day-item sunday" data-time="1630162800000" tabindex="0">29</div><div class="day-item" data-time="1630249200000" tabindex="0">30</div><div class="day-item" data-time="1630335600000" tabindex="0">31</div></div></div></div></div></div></div>
+<form action="https://www.tablecheck.com/ja/shops/mesm-tokyo-chefstheatre/reserve" accept-charset="UTF-8" method="post" target="_blank">
+<input name="reservation[user_token]" type="hidden">
+<div class="tc-content">
+<div class="tc-shop">
+<label class="tc-label">店舗</label>
+<select name="shop_id">
+<option value="mesm-tokyo-chefstheatre">シェフズ・シアター</option>
+<option value="mesm-tokyo-whisk">ウィスク</option>
+<!-- <option value="mesm-tokyo-banquet">バンケットルーム</option> -->
+</select>
+</div>
+<div class="tc-date">
+<label class="tc-label">予約日</label>
+<div class="tc-wrap-input">
+<input name="reservation[start_date]" type="text" autocomplete="off" readonly="readonly">
+</div>
+</div>
+<div class="tc-time">
+<label class="tc-label">予約時間</label>
+<div class="tc-wrap-input">
+<select name="reservation[start_time]"><option value="23400">06:30</option><option value="25200">07:00</option><option value="27000">07:30</option><option value="28800">08:00</option><option value="30600">08:30</option><option value="32400">09:00</option><option value="41400">11:30</option><option value="43200">12:00</option><option value="45000">12:30</option><option value="46800">13:00</option><option value="48600">13:30</option><option value="61200">17:00</option><option value="63000">17:30</option><option value="64800">18:00</option><option value="66600">18:30</option><option value="68400">19:00</option><option value="70200">19:30</option><option value="72000">20:00</option></select>
+</div>
+</div>
+<div class="tc-ppl">
+<label class="tc-label">人数</label>
+<div class="tc-wrap-input">
+<select name="reservation[num_people]"><option value="1">1名</option><option value="2">2名</option><option value="3">3名</option><option value="4">4名</option></select>
+</div>
+</div>
+<div class="tc-wrap-book">
+<input type="submit" value="予約" class="tc-book">
+</div>
+</div>
+</form>
+<div class="reservation-info">
+<div>
+<h3>メズム東京、オートグラフコレクション</h3>
+<address>〒105-0022 東京都港区海岸1丁目10-30</address>
+</div>
+<div>
+<h4>お問い合わせ／ご予約</h4>
+<div class="reservation-info-link">
+<span class="tel">TEL：<a href="tel:03-5777-1111" target="_blank">03-5777-1111</a></span>
+<span class="mail"><a href="https://www.mesm.jp/contact/?mode=2" target="_blank">メールでのお問い合わせ</a></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- <div class="menu-sub">
+<h2>会員の方</h2>
+<ul>
+<li><a href="https://www.marriott.co.jp/hotels/travel/tyoam-mesm-tokyo-autograph-collection/" target="_blank"><img src="/cmn/cmn_img/megamenu_01.png" alt="Marriott Bonvoy（マリオット ボンヴォイ）"></a></li>
+<li><a href="https://secure.reservation.jp/jrhotel-m/stay_pc/rsv/index.aspx?hi_id=86&lang=ja-JP" target="_blank"><img src="/cmn/cmn_img/megamenu_02.png" alt="JR東日本ホテルズ"></a></li>
+</ul>
+<p class="beginner"><a href="https://www.marriott.co.jp/hotels/travel/tyoam-mesm-tokyo-autograph-collection/" target="_blank">初めての方はこちら</a></p>
+<p class="reserve"><a href="https://www.tablecheck.com/ja/shops/mesm-tokyo-chefstheatre/reserve" target="_blank">レストラン予約の方はこちら</a></p>
+<p class="reserve"><a href="https://www.tablecheck.com/shops/mesm-tokyo-whisk/reserve?menu_items[]=5fa103ad2087f6003ef69b05" target="_blank">アフタヌーン・エキシビジョン予約の方はこちら</a></p>
+</div> -->
+<p class="btn_close"><img src="/cmn/cmn_img/btn_close.png"></p>
+</div>
+</div>
+</div>
+
+
+<!--▲▲/#HEADER ▲▲-->
+
+<section class="topMv">
+<div class="tagline action"></div>
+<div class="img vegas-container" id="vegas" style="height: 1129px;"><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in vegas-transition-fade-out" style="transition: all 4000ms ease 0s;"><div class="vegas-slide-inner vegas-animation-kenburnsUp" style="background-image: url(&quot;adj32o000000199m-img/AK_TYOAM_Restaurant_ChefsTheatre_01w1600.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-position: center center; background-size: cover; animation-duration: 8000ms;"></div></div><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in" style="transition: all 4000ms ease 0s;"><div class="vegas-slide-inner vegas-animation-kenburnsDownRight" style="background-image: url(&quot;adj32o000000199m-img/AK_TYOAM_GuestRoom_Chapter2_Double_01w1600.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-position: center center; background-size: cover; animation-duration: 8000ms;"></div></div><div class="vegas-timer vegas-timer-running"><div class="vegas-timer-progress" style="transition-duration: 6900ms;"></div></div><div class="vegas-wrapper" style="overflow: visible; padding: 0px;"></div></div>
+</section>
+
+<div class="topReservation">
+<div class="inr">
+<ul class="tab">
+<li class="tab-btn -active first">ご宿泊</li>
+<li class="tab-btn even last">お食事</li>
+</ul>
+<div class="tab-contents">
+<form action="https://secure.reservation.jp/jrhotel-m/stay_pc/rsv/rsv_src_pln.aspx" method="get" target="_blank" class="form-stay">
+<!-- 言語（日本語"ja-JP",英語"en-US",韓国語"ko-KR",中国語(簡体字)"zh-CN",中国語(繁体字)"zh-TW"） -->
+<input type="hidden" name="lang" value="ja-JP">
+<input type="hidden" name="std" value="">
+<!-- 単体ホテルの場合 -->
+<input type="hidden" name="hi_id" value="86">
+<!-- 検索方法（プラン毎"0",部屋毎"1",料金毎"3",カレンダー"4"） -->
+<input type="hidden" name="st" value="0">
+<!-- 泊数 -->
+<input type="hidden" name="le" value="" class="stay-night">
+<div class="stay-form">
+<div class="stay-form-item">
+<label>チェックイン</label>
+<input type="input" class="stay-checkin" readonly="readonly" name="dt">
+</div>
+<div class="stay-form-item">
+<label>チェックアウト</label>
+<input type="input" class="stay-checkout" readonly="readonly">
+</div>
+<div class="stay-form-item">
+<label>部屋</label>
+<select name="rc" class="stay-room">
+<option value="1" selected="selected">1室</option>
+<option value="2">2室</option>
+<option value="3">3室</option>
+</select>
+</div>
+<div class="stay-form-item">
+<label>人数</label>
+<select name="mc" class="stay-guests">
+<option value="1">1名</option>
+<option value="2" selected="selected">2名</option>
+</select>
+</div>
+<div class="stay-form-item sf-wrap-submit">
+<input type="submit" class="stay-submit" value="予約">
+</div>
+</div>
+</form>
+</div>
+<div class="tab-contents">
+<!-- <script type="text/javascript" src="https://vesper-widget.s3.amazonaws.com/tc_widget/tc_widget.js"></script>
+<div data-autolang="false" data-lang="ja" data-layout="horizontal" data-theme="clear" data-time-interval="30" data-franchise-id="5d5cbc716e731d4a660008e3" id="tc-widget"></div> -->
+<form action="https://www.tablecheck.com/ja/shops/mesm-tokyo-chefstheatre/reserve" accept-charset="UTF-8" method="post" target="_blank">
+<input name="reservation[user_token]" type="hidden">
+<div class="tc-content">
+<div class="tc-shop">
+<label class="tc-label">店舗</label>
+<select name="shop_id">
+<option value="mesm-tokyo-chefstheatre">シェフズ・シアター</option>
+<option value="mesm-tokyo-whisk">ウィスク</option>
+<!-- <option value="mesm-tokyo-banquet">バンケットルーム</option> -->
+</select>
+</div>
+<div class="tc-date">
+<label class="tc-label">予約日</label>
+<div class="tc-wrap-input">
+<input name="reservation[start_date]" type="text" autocomplete="off" readonly="readonly">
+</div>
+</div>
+<div class="tc-time">
+<label class="tc-label">予約時間</label>
+<div class="tc-wrap-input">
+<select name="reservation[start_time]"><option value="23400">06:30</option><option value="25200">07:00</option><option value="27000">07:30</option><option value="28800">08:00</option><option value="30600">08:30</option><option value="32400">09:00</option><option value="41400">11:30</option><option value="43200">12:00</option><option value="45000">12:30</option><option value="46800">13:00</option><option value="48600">13:30</option><option value="61200">17:00</option><option value="63000">17:30</option><option value="64800">18:00</option><option value="66600">18:30</option><option value="68400">19:00</option><option value="70200">19:30</option><option value="72000">20:00</option></select>
+</div>
+</div>
+<div class="tc-ppl">
+<label class="tc-label">人数</label>
+<div class="tc-wrap-input">
+<select name="reservation[num_people]"><option value="1">1名</option><option value="2">2名</option><option value="3">3名</option><option value="4">4名</option></select>
+</div>
+</div>
+<div class="tc-wrap-book">
+<input type="submit" value="予約" class="tc-book">
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<div id="contents" class="contents" style="display: block;">
+
+
+
+<section class="topOffers action">
+<div class="inr">
+<div class="data">
+<p class="offers">offers</p>
+<p class="txt">「いつ来ても新しいホテル」<br class="spDisp">メズム東京。<br>
+新しい発見、新しい体験に出会える<br class="spDisp">ホテルの最新情報をお届けいたします。</p>
+
+
+<p class="btn"><a href="/news/">view more</a></p>
+
+
+</div>
+<div id="tab">
+<!--tab1-->
+<div class="tabBox">
+<ul class="offerSlider slick-initialized slick-slider slick-dotted"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: block;">Previous</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 5740px; transform: translate3d(-820px, 0px, 0px);"><li class="slick-slide slick-cloned" style="width: 380px;" data-slick-index="-2" aria-hidden="true" tabindex="-1">
+
+<a href="https://www.mesm.jp/news/20210208BEARBRICK_TokyoWaves400.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o0000001qfk-img/adj32o0000001qgv.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>guest room</span><time>2021.02.01</time></p>
+<h2>【重要】『BE@RBRICK TokyoWaves (2020)』400％サイズご購入希望のお客さまへ</h2>
+</div>
+</a>
+</li><li class="even last slick-slide slick-cloned" style="width: 380px;" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+
+<a href="https://www.mesm.jp/news/showcasepage1224.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o0000001io2-img/ShowcaseP6160590_840.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>event</span><time>2020.12.24</time></p>
+<h2>ショーケースページが完成しました</h2>
+</div>
+</a>
+</li><li class="first slick-slide slick-current slick-active" style="width: 380px;" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00">
+
+<a href="https://www.mesm.jp/news/May_plan.html" tabindex="0">
+
+<p class="img" style="background-image: url('news/adj32o00000028en-img/breakfast-image.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>guest room</span><time>2021.05.20</time></p>
+<h2>5月31日までのお得な宿泊プランを販売中</h2>
+</div>
+</a>
+</li><li class="even slick-slide slick-active" style="width: 380px;" data-slick-index="1" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide01" aria-describedby="slick-slide-control01">
+
+<a href="https://www.mesm.jp/news/me_time30.html" tabindex="0">
+
+<p class="img" style="background-image: url('news/adj32o00000025mc-img/blue.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>guest room</span><time>2021.05.26</time></p>
+<h2>【2021/5/26更新】30時間の贅沢ステイ「Me-Time 30」プランを販売</h2>
+</div>
+</a>
+</li><li class="slick-slide" style="width: 380px;" data-slick-index="2" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide02" aria-describedby="slick-slide-control02">
+
+<a href="https://www.mesm.jp/news/gekidan_shiki_plan.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o00000023z1-img/gekidan_shiki.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>event</span><time>2021.06.04</time></p>
+<h2>【2021/6/4更新～ご好評につき日程追加～】劇団四季『オペラ座の怪人』のS席観劇と特別ランチコースがセットになった日帰りプランを限定販売</h2>
+</div>
+</a>
+</li><li class="even slick-slide" style="width: 380px;" data-slick-index="3" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide03" aria-describedby="slick-slide-control03">
+
+<a href="https://www.mesm.jp/news/clubmesm_plan.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o00000020x4-img/clubmesm_view.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>guest room</span><time>2021.03.25</time></p>
+<h2>プライベートサロン「クラブメズム」が利用できるワンランク上のラグジュアリーステイプランを販売開始</h2>
+</div>
+</a>
+</li><li class="slick-slide" style="width: 380px;" data-slick-index="4" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide04" aria-describedby="slick-slide-control04">
+
+<a href="https://www.mesm.jp/news/20210208BEARBRICK_TokyoWaves400.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o0000001qfk-img/adj32o0000001qgv.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>guest room</span><time>2021.02.01</time></p>
+<h2>【重要】『BE@RBRICK TokyoWaves (2020)』400％サイズご購入希望のお客さまへ</h2>
+</div>
+</a>
+</li><li class="even last slick-slide" style="width: 380px;" data-slick-index="5" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide05" aria-describedby="slick-slide-control05">
+
+<a href="https://www.mesm.jp/news/showcasepage1224.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o0000001io2-img/ShowcaseP6160590_840.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>event</span><time>2020.12.24</time></p>
+<h2>ショーケースページが完成しました</h2>
+</div>
+</a>
+</li><li class="first slick-slide slick-cloned" style="width: 380px;" data-slick-index="6" aria-hidden="true" tabindex="-1">
+
+<a href="https://www.mesm.jp/news/May_plan.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o00000028en-img/breakfast-image.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>guest room</span><time>2021.05.20</time></p>
+<h2>5月31日までのお得な宿泊プランを販売中</h2>
+</div>
+</a>
+</li><li class="even slick-slide slick-cloned" style="width: 380px;" data-slick-index="7" aria-hidden="true" tabindex="-1">
+
+<a href="https://www.mesm.jp/news/me_time30.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o00000025mc-img/blue.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>guest room</span><time>2021.05.26</time></p>
+<h2>【2021/5/26更新】30時間の贅沢ステイ「Me-Time 30」プランを販売</h2>
+</div>
+</a>
+</li><li class="slick-slide slick-cloned" style="width: 380px;" data-slick-index="8" aria-hidden="true" tabindex="-1">
+
+<a href="https://www.mesm.jp/news/gekidan_shiki_plan.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o00000023z1-img/gekidan_shiki.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>event</span><time>2021.06.04</time></p>
+<h2>【2021/6/4更新～ご好評につき日程追加～】劇団四季『オペラ座の怪人』のS席観劇と特別ランチコースがセットになった日帰りプランを限定販売</h2>
+</div>
+</a>
+</li><li class="even slick-slide slick-cloned" style="width: 380px;" data-slick-index="9" aria-hidden="true" tabindex="-1">
+
+<a href="https://www.mesm.jp/news/clubmesm_plan.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o00000020x4-img/clubmesm_view.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>guest room</span><time>2021.03.25</time></p>
+<h2>プライベートサロン「クラブメズム」が利用できるワンランク上のラグジュアリーステイプランを販売開始</h2>
+</div>
+</a>
+</li><li class="slick-slide slick-cloned" style="width: 380px;" data-slick-index="10" aria-hidden="true" tabindex="-1">
+
+<a href="https://www.mesm.jp/news/20210208BEARBRICK_TokyoWaves400.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o0000001qfk-img/adj32o0000001qgv.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>guest room</span><time>2021.02.01</time></p>
+<h2>【重要】『BE@RBRICK TokyoWaves (2020)』400％サイズご購入希望のお客さまへ</h2>
+</div>
+</a>
+</li><li class="even last slick-slide slick-cloned" style="width: 380px;" data-slick-index="11" aria-hidden="true" tabindex="-1">
+
+<a href="https://www.mesm.jp/news/showcasepage1224.html" tabindex="-1">
+
+<p class="img" style="background-image: url('news/adj32o0000001io2-img/ShowcaseP6160590_840.jpg'); background-size: cover;"><img src="https://www.mesm.jp/cmn/uniq/top/spacer.png"></p>
+<div class="box" style="height: 222px;">
+<p class="tag"><span>event</span><time>2020.12.24</time></p>
+<h2>ショーケースページが完成しました</h2>
+</div>
+</a>
+</li></div></div><button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 3" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide01" aria-label="2 of 3" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide02" aria-label="3 of 3" tabindex="-1">3</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control03" aria-controls="slick-slide03" aria-label="4 of 3" tabindex="-1">4</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control04" aria-controls="slick-slide04" aria-label="5 of 3" tabindex="-1">5</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control05" aria-controls="slick-slide05" aria-label="6 of 3" tabindex="-1">6</button></li></ul></ul>
+</div>
+<!--tab1-->
+</div>
+</div>
+</section>
+
+<section class="topConcept action">
+<div class="spHide">
+<script>
+(function () {
+	var ua = {
+		iPhone: navigator.userAgent.indexOf('iPhone') != -1,
+		iPad: navigator.userAgent.indexOf('iPad') != -1,
+		iPod: navigator.userAgent.indexOf('iPod') != -1,
+		android: navigator.userAgent.indexOf('Android') != -1,
+		windows: navigator.userAgent.indexOf('Windows Phone') != -1
+	}
+	if (ua.iPhone || ua.iPod || ua.android || ua.windows) {
+	} else {
+document.write("<video src='/cmn/video/concept.mp4' playsinline autoplay muted loop>");
+	}
+}());
+</script><video src="/cmn/video/concept.mp4" playsinline="" autoplay="" muted="" loop="">
+</video></div>
+<div class="inr">
+<p class="sub">concept</p>
+<h1><img src="https://www.mesm.jp/cmn/uniq/top/img_topconcept_01.png" alt="メズム東京 TOKYO WAVES"></h1>
+<p class="play"><a data-video-id="NclKl-dnbz4" class="js-modal-btn">watch the movie</a></p>
+<p class="bodyCopy">まるで進化し続ける都市、東京そのもののように。<br>
+細部にまで渡るこだわりと、ここでしか得られない特別な体験。<br>
+まだ見たことのない本物の東京を、メズム東京で。</p>
+
+
+<p class="btn"><a href="/concept/">view more</a></p>
+
+
+</div>
+</section>
+
+<section class="topGuestroom action">
+<p class="title">guest rooms</p>
+
+<div class="inr">
+<div class="img">
+<ul class="guestSliderImg slick-initialized slick-slider">
+
+<div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2972px;"><li style="background-image: url(&quot;guestroom/adj32o00000004ci-img/CP1-doublew960m.jpg&quot;); background-size: cover; width: 743px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" class="first slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0"><img src="https://www.mesm.jp/cmn/uniq/top/spacer_02.png"></li><li style="background-image: url(&quot;guestroom/adj32o00000004gj-img/AK_TYOAM_GuestRoom_Chapter2_Double_01w960m.jpg&quot;); background-size: cover; width: 743px; position: relative; left: -743px; top: 0px; z-index: 998; opacity: 0;" class="even slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1"><img src="https://www.mesm.jp/cmn/uniq/top/spacer_02.png"></li><li style="background-image: url(&quot;guestroom/adj32o00000004iz-img/AK_TYOAM_GustRoom_Chapter3_Suite_Doublew960m.jpg&quot;); background-size: cover; width: 743px; position: relative; left: -1486px; top: 0px; z-index: 998; opacity: 0;" class="slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1"><img src="https://www.mesm.jp/cmn/uniq/top/spacer_02.png"></li><li style="background-image: url(&quot;guestroom/adj32o00000004lg-img/AK_TYOAM_GuestRoom_Chapter4_Suite_Luxe_Livingw960m.jpg&quot;); background-size: cover; width: 743px; position: relative; left: -2229px; top: 0px; z-index: 998; opacity: 0;" class="even last slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1"><img src="https://www.mesm.jp/cmn/uniq/top/spacer_02.png"></li></div></div>
+
+
+
+
+
+
+
+</ul>
+</div>
+<div class="data"><div class="slick-counter"><span class="cc">0<span class="current">1</span></span> / 0<span class="total">4</span></div>
+<div class="guestSlider slick-initialized slick-slider slick-dotted"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: block;">Previous</button>
+
+<div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 1720px;"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide10" aria-describedby="slick-slide-control10" style="width: 430px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+<h2>chapter 1</h2>
+<p class="txt">17階～26階に位置し40㎡の広さを持つモダンでスタイリッシュなデザインのchapter 1は、ツインタイプとキングタイプをご用意。ガーデンビュー、エグゼクティブクラスなどもお選びいただけます。</p>
+<p class="btn"><a href="guestroom/chapter1.html" tabindex="0">view more</a></p>
+</div><div class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide11" aria-describedby="slick-slide-control11" style="width: 430px; position: relative; left: -430px; top: 0px; z-index: 998; opacity: 0;">
+<h2>chapter 2</h2>
+<p class="txt">17階～26階に位置し43～44㎡の広さを持つモダンでスタイリッシュなデザインのchapter 2は、全室キングタイプでご用意。ガーデンビュー、エグゼクティブクラスなどもお選びいただけます。</p>
+<p class="btn"><a href="guestroom/chapter2.html" tabindex="-1">view more</a></p>
+</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide12" aria-describedby="slick-slide-control12" style="width: 430px; position: relative; left: -860px; top: 0px; z-index: 998; opacity: 0;">
+<h2>chapter 3 Suite</h2>
+<p class="txt">18階～24階に位置し、95㎡の贅沢な広さを持つchapter 3 スイートは、全室ガーデンビューのバルコニー付き。広々としたリビングルームと洗練されたベッドルームで、心豊かなプライベートタイムをお過ごしください。</p>
+<p class="btn"><a href="guestroom/chapter3.html" tabindex="-1">view more</a></p>
+</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide13" aria-describedby="slick-slide-control13" style="width: 430px; position: relative; left: -1290px; top: 0px; z-index: 998; opacity: 0;">
+<h2>chapter 4 Suite Luxe</h2>
+<p class="txt">ホテル最上階の26階に位置するchapter 4 スイートリュクスは、180㎡という広さの最上級のラグジュアリー空間。リビングルーム、ダイニングルーム、ベッドルーム、バスルームで構成され、お部屋で過ごす時間の中に多彩なストーリーが生まれます。</p>
+<p class="btn"><a href="guestroom/chapter4.html" tabindex="-1">view more</a></p>
+</div></div></div>
+
+
+
+
+
+
+
+<button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control10" aria-controls="slick-slide10" aria-label="1 of 4" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control11" aria-controls="slick-slide11" aria-label="2 of 4" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control12" aria-controls="slick-slide12" aria-label="3 of 4" tabindex="-1">3</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control13" aria-controls="slick-slide13" aria-label="4 of 4" tabindex="-1">4</button></li></ul></div>
+
+</div>
+</div>
+
+
+</section>
+
+<section class="topRestaurant action">
+<p class="title">restaurant &amp; bar</p>
+<div class="inr">
+<div class="data">
+
+<p class="vi"><img src="adj32o000000199m-img/AK_TYOAM_Restaurant_Whiskw1600.jpg" class="spHide"><img src="adj32o000000199m-img/AK_TYOAM_Restaurant_ChefsTheatre_01w1600.jpg" class="spDisp"></p>
+
+<h2><span>シェフズ・シアター &amp; ウィスク</span>Chefʼs Theatre &amp; Whisk</h2>
+<p class="btn"><a href="/restaurant/">view more</a></p>
+
+
+</div>
+<div class="img">
+<img src="adj32o000000199m-img/AK_TYOAM_Restaurant_ChefsTheatre_01w1600.jpg">
+</div>
+</div>
+<p class="title2 action">service</p>
+<div class="inr2 action">
+<div class="data">
+
+<p class="vi"><img src="adj32o000000199m-img/img_topres_02_01m.png"></p>
+
+<h2><span>バンケット ＆ その他のサービス</span>
+banquet &amp; other services</h2>
+<p class="btn"><a href="/service/">view more</a></p>
+
+
+</div>
+<div class="img">
+<img src="adj32o000000199m-img/banquet.jpg">
+</div>
+</div>
+</section>
+
+<section class="topCollabo action">
+<h2 class="title">collaboration</h2>
+<div class="inr">
+
+
+
+<ul>
+
+<li class="first">
+<a href="collaboration/YsBangON.html">
+<p class="img" style="background-image: url('collaboration/adj32o0000000ujc-img/bangon.jpg');"><img src="https://www.mesm.jp/cmn/uniq/top/spacer_03.png"></p>
+<div class="data">
+<h3>Y's BANG ON!</h3>
+<p class="txt">日本のクラフトマンシップに通ずる、「Y’s BANG ON!」によるスターサービスを象徴するユニフォームが誕生</p>
+</div>
+</a>
+</li>
+
+<li class="even">
+<a href="collaboration/bulk_homme.html">
+<p class="img" style="background-image: url('collaboration/adj32o00000005et-img/img_index_01.png');"><img src="https://www.mesm.jp/cmn/uniq/top/spacer_03.png"></p>
+<div class="data">
+<h3>BULK HOMME</h3>
+<p class="txt">新感覚・新発想のメズム東京オリジナルアメニティ</p>
+</div>
+</a>
+</li>
+
+<li>
+<a href="collaboration/sarutahiko_coffee.html">
+<p class="img" style="background-image: url('collaboration/adj32o00000005g4-img/img_index_02.png');"><img src="https://www.mesm.jp/cmn/uniq/top/spacer_03.png"></p>
+<div class="data">
+<h3>SARUTAHIKO COFFEE</h3>
+<p class="txt">ドリップする時間まで楽しみたいこだわりのスペシャルティコーヒー</p>
+</div>
+</a>
+</li>
+
+<li class="even last">
+<a href="collaboration/casio.html">
+<p class="img" style="background-image: url('collaboration/adj32o00000005hw-img/img_index_03.png');"><img src="https://www.mesm.jp/cmn/uniq/top/spacer_03.png"></p>
+<div class="data">
+<h3>CASIO</h3>
+<p class="txt">客室×デジタルピアノの出会い　音楽でホテルステイに彩りを</p>
+</div>
+</a>
+</li>
+
+</ul>
+<p class="btn"><a href="/collaboration/">view more</a></p>
+
+
+
+
+</div>
+</section>
+
+<section class="topNews action">
+<h2 class="title">news &amp; topics</h2>
+<div class="inr">
+
+
+<ul>
+
+<li class="first">
+
+<a href="https://www.mesm.jp/news/mesmtokyo.information.html">
+
+<p class="tag"><span>other</span><time>2021.07.06</time></p>
+<h3>新型コロナウイルスワクチン職域接種を実施
+<span class="new">NEW</span></h3>
+</a>
+</li>
+
+<li class="even">
+
+<a href="https://www.mesm.jp/news/mesmtogo.html">
+
+<p class="tag"><span>other</span><time>2021.06.30</time></p>
+<h3>テイクアウトサービス“mesm TO GO”を開始
+<span class="new">NEW</span></h3>
+</a>
+</li>
+
+<li>
+
+<a href="https://www.mesm.jp/news/suisobus.html">
+
+<p class="tag"><span>other</span><time>2021.06.29</time></p>
+<h3>【6/29更新】燃料電池バス「JR竹芝 水素シャトルバス」の運行について
+<span class="new">NEW</span></h3>
+</a>
+</li>
+
+<li class="even last">
+
+<a href="https://www.mesm.jp/news/2021summer_freeflow.html">
+
+<p class="tag"><span>press</span><time>2021.06.28</time></p>
+<h3>【7月～9月夏季限定】厳選スパークリングワイン　フリーフロープランを販売開始
+<span class="new">NEW</span></h3>
+</a>
+</li>
+
+</ul>
+<p class="btn"><a href="/news/">view more</a></p>
+
+
+
+</div>
+</section>
+
+
+
+<section class="topLocation last action" id="access">
+<div class="inr">
+<div class="data">
+<h2 class="title">location</h2>
+<h3 class="name">メズム東京、オートグラフ コレクション</h3>
+<p>東京都港区海岸1丁目10-30</p>
+<p class="spDisp">tel：<a href="tel:03-5777-1111">03-5777-1111</a></p>
+<p class="spHide">tel：03-5777-1111</p>
+
+<h3 class="locationTitle"><span>train</span>電車をご利用の方</h3>
+<p class="btm10">JR山手線・京浜東北線、モノレール「浜松町」駅 北口より徒歩6分<br>
+新交通ゆりかもめ「竹芝」駅より徒歩3分<br>
+都営大江戸線・浅草線「大門」駅 B1/B2出口より徒歩7分</p>
+<ul class="indList list02 listS">
+<li class="first">羽田空港から浜松町駅まで約20分</li>
+<li class="even">成田空港から浜松町駅まで約80分　</li>
+
+<h3 class="locationTitle"><span>car</span>お車をご利用の方</h3>
+<p>首都高速 都心環状線 芝公園出口からホテルまで約5分</p><br>
+<p>ホテル地下駐車場では、バレーサービスのみご提供いたします。</p>
+<br>
+<p><b>■ホテル地下駐車場（バレーサービス）のご利用について<br></b>
+【ご宿泊】1泊あたり4,000円<br>
+※チェックインからチェックアウトまでご利用いただけます。<br>
+【そのほか】バレー料金　1回　2,000円<br>
+駐車料金　1時間無料　/　以降30分あたり400円<br>
+<br>
+<b>■NPCウォーターズ竹芝駐車場棟のご利用について<br></b>
+１時間￥600　/ 最大料金（24時間）￥1,800（ご宿泊者の場合　1,800円）<br>
+※マリオット・ボンヴォイ特典適用外<br>
+</p>
+<p>&nbsp;</p>
+<a href="https://www.mesm.jp/news/boat.html" taget="_blank"><b>舟運アクセスについて</b></a><br>
+<br>
+<a href="https://www.mesm.jp/news/suisobus.html" taget="_blank"><b>水素バスアクセスについて</b></a>
+</ul></div>
+<div class="img">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.816959950739!2d139.75966491590515!3d35.65688108019985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b6e53e513fd%3A0xd66a7a33b3cd06e8!2z44Oh44K644Og5p2x5Lqs44CB44Kq44O844OI44Kw44Op44OVIOOCs-ODrOOCr-OCt-ODp-ODsyBtZXNtIFRva3lvLCBBdXRvZ3JhcGggQ29sbGVjdGlvbg!5e0!3m2!1sja!2sjp!4v1571822101576!5m2!1sja!2sjp" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</div>
+</div>
+</section>
+
+
+
+</div>
+<!--▲▲/#CONTENTS ▲▲-->
+
+<div class="bookNow action" style="display: flex;">
+<p><img src="/cmn/cmn_img/img_logo_booknow.svg" alt="メズム東京、オートグラフコレクション" width="180" height="51"></p>
+<div style="width: 100%;">
+<p class="btn"><a class="bookNowSwitch">book now</a></p>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgA"><path id="waveA1" d="M 0 94.99339932028471 C 128.6 39.74520344396827 128.6 39.74520344396827 257.2 67.36930138212651 C 385.79999999999995 94.99339932028471 385.79999999999995 94.99339932028471 514.4 69.01332173688536 C 643 43.03324415348602 643 43.03324415348602 771.6 97.19627856017922 C 900.2 151.35931296687244 900.2 151.35931296687244 1028.8 105.13261150489332 C 1157.3999999999999 58.90591004291421 1157.3999999999999 58.90591004291421 1286 82.52210340515259 L 1286 9467 L 0 9467 Z" fill="#C0991F"></path></svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgA"><path id="waveA2" d="M 0 95.99363466469168 C 128.6 40.74306058965027 128.6 40.74306058965027 257.2 68.36834762717099 C 385.79999999999995 95.99363466469168 385.79999999999995 95.99363466469168 514.4 70.01276217846862 C 643 44.031889692245535 643 44.031889692245535 771.6 98.19704210204462 C 900.2 152.36219451184368 900.2 152.36219451184368 1028.8 106.13343061736813 C 1157.3999999999999 59.904666722892564 1157.3999999999999 59.904666722892564 1286 83.5222367551766 L 1286 9467 L 0 9467 Z" fill="#FFF"></path></svg>
+<div class="bgWave01"></div>
+<div class="bgWave02"></div>
+<div class="bgWave03"></div>
+</div>
+<p class="btn fix-bottom onShow"><a class="bookNowSwitch">book now</a></p></div>
+<!--▲▲/.BOOKNOW ▲▲-->
+
+<footer id="footer" class="footer" style="display: block;">
+
+<div class="ftT">
+<p class="logo"><a href="/"><img src="/cmn/cmn_img/img_logo_ft.svg" alt="メズム東京、オートグラフコレクション" width="177" height="76"></a></p>
+<ul>
+<li class="first"><a href="/contact/">問い合わせ</a></li>
+<li class="even"><a href="/news/">ニュース</a></li>
+<li><a href="/recruit/">採用情報</a></li>
+<li class="even"><a href="/accommodationpolicy/">宿泊約款</a></li>
+<li><a href="/privacypolicy/">プライバシーポリシー</a></li>
+<li class="even"><a href="javascript:Bootstrapper.gateway.openModal();">クッキー詳細設定</a></li>
+<li class="last"><a href="https://www.nihonhotel.com/" target="_blank">会社情報</a></li>
+</ul>
+</div>
+
+<div class="ftB">
+<ul>
+<li class="first"><a href="https://waters-takeshiba.jp/" target="_blank"><img src="/cmn/cmn_img/img_ft_brand_01.png" alt="ウォーターズ竹芝"></a></li>
+<li class="even"><a href="https://autograph-hotels.marriott.com/" target="_blank"><img src="/cmn/cmn_img/img_ft_brand_02.png" alt="オートグラフ コレクション"></a></li>
+<li><a href="https://www.marriott.co.jp/loyalty.mi" target="_blank"><img src="/cmn/cmn_img/img_ft_brand_03.png" alt="Marriott Bonvoy（マリオット ボンヴォイ）"></a></li>
+<li class="even"><a href="https://www.jrhotel-m.jp/" target="_blank"><img src="/cmn/cmn_img/img_ft_brand_04.png" alt="JRホテルメンバーズ"></a></li>
+<li class="last"><a href="https://www.jre-hotels.jp/" target="_blank"><img src="/cmn/cmn_img/img_ft_brand_05.png" alt="JR東日本ホテルズ"></a></li>
+</ul>
+</div>
+
+<p class="langChange"><span>jp</span> | <a href="/en/">en</a></p>
+
+<small>Copyright © mesm Tokyo. All Rights Reserved.</small>
+
+</footer>
+
+
+<!--▲▲/#FOOTER ▲▲-->
+
+</div>
+<!--▲▲/#WRAP ▲▲--> 
+
+<!--DEFAULT JS--> 
+<!--[if lt IE 9]><script src="/cmn/cmn_js/html5shiv-printshiv.js"></script><![endif]--> 
+<script src="https://www.mesm.jp/cmn/cmn_js/jquery.min.js"></script>
+<script src="https://www.mesm.jp/cmn/cmn_js/viewport.js"></script>
+<script src="https://www.mesm.jp/cmn/cmn_js/jquery.easing.min.js"></script>
+<script src="https://www.mesm.jp/cmn/cmn_js/jquery.parallax.min.js"></script>
+<script src="https://www.mesm.jp/cmn/cmn_js/jquery.matchHeight-min.js"></script>
+<script src="https://www.mesm.jp/cmn/cmn_js/scrolltop/jquery_scrolltop.js"></script>
+<script src="https://www.mesm.jp/cmn/cmn_js/jquery.parts.js"></script> 
+<script src="https://www.mesm.jp/cmn/cmn_js/TweenMax.min.js"></script>
+<script src="https://www.mesm.jp/cmn/cmn_js/jquery.wavify.js"></script>
+<script>
+$('#waveA1').wavify({
+  height: 60,
+  bones: 5,
+  amplitude: 50,
+  color: '#C0991F',
+  speed: .35
+});
+$('#waveA2').wavify({
+  height: 61,
+  bones: 5,
+  amplitude: 50,
+  color: '#FFF',
+  speed: .35
+});
+</script>
+<!--UNIQ SCRIPT-->
+<script>
+$('#waveA11').wavify({
+  height: 60,
+  bones: 5,
+  amplitude: 50,
+  color: '#FFF',
+  speed: .35
+});
+$('#waveA12').wavify({
+  height: 61,
+  bones: 5,
+  amplitude: 50,
+  color: '#041932',
+  speed: .35
+});
+$('#waveA13').wavify({
+  height: 60,
+  bones: 2,
+  amplitude: 40,
+  color: '#FFF',
+  speed: .35
+});
+$('#waveA14').wavify({
+  height: 61,
+  bones: 2,
+  amplitude: 40,
+  color: '#041932',
+  speed: .35
+});
+</script>
+<script src="https://www.mesm.jp/cmn/cmn_js/jquery.inview.js" type="text/javascript"></script>
+<link href="https://www.mesm.jp/cmn/cmn_js/vegas/vegas.min.css" rel="stylesheet" type="text/css">
+<script src="https://www.mesm.jp/cmn/cmn_js/vegas/vegas.min.js" type="text/javascript"></script>
+
+<script>
+(function(){
+  var ua = {
+    iPhone: navigator.userAgent.indexOf('iPhone') != -1,
+    iPad: navigator.userAgent.indexOf('iPad') != -1,
+    iPod: navigator.userAgent.indexOf('iPod') != -1,
+    android: navigator.userAgent.indexOf('Android') != -1,
+    windows: navigator.userAgent.indexOf('Windows Phone') != -1
+  }
+  if(ua.iPhone || ua.iPod || ua.android || ua.windows){
+	
+$(function() {
+
+//No Scroll
+$('html, body').css('overflowY', 'hidden');
+$(window).on('touchmove.noScroll', function(e) {
+    e.preventDefault();
+});
+
+$('html,body').animate({ scrollTop: 0 }, '1');
+
+setTimeout(function(){
+$('#loading .waves').addClass('action');
+},200);
+setTimeout(function(){
+$('#loading .logo').addClass('action');
+},1000);
+setTimeout(function(){
+$('#load-text').addClass('action');
+},1500);
+
+Array.prototype.remove = function(element) {
+	  for (var i = 0; i < this.length; i++)
+	    if (this[i] == element) this.splice(i,1); 
+	};
+
+function preload(images, progress) {
+		var total = images.length;
+	    $(images).each(function(){
+			var src = this;
+	        $('<img/>')
+				.attr('src', src)
+				.load(function() {
+					images.remove(src);
+					progress(total, total - images.length);
+				});
+	    });
+	}
+	
+var now_percent = 0;
+var displaying_percent= 0;
+preload([
+
+'adj32o000000199m-img/1029_AK_TYOAM_Lobby_02w1600.jpg',
+
+'adj32o000000199m-img/AK_TYOAM_Restaurant_ChefsTheatre_01w1600.jpg',
+
+'adj32o000000199m-img/AK_TYOAM_GuestRoom_Chapter2_Double_01w1600.jpg',
+
+'adj32o000000199m-img/AK_TYOAM_BathRoom_Chapter4_Suite_Luxew1600.jpg',
+
+'adj32o000000199m-img/AK_TYOAM_Entrancew1600.jpg',
+
+'news/adj32o00000028en-img/breakfast-image.jpg',
+
+'news/adj32o00000025mc-img/blue.jpg',
+
+'news/adj32o00000023z1-img/gekidan_shiki.jpg',
+
+'news/adj32o00000020x4-img/clubmesm_view.jpg',
+
+'news/adj32o0000001qfk-img/adj32o0000001qgv.jpg',
+
+'news/adj32o0000001io2-img/ShowcaseP6160590_840.jpg',
+
+'news/adj32o0000001dn2-img/donperi20201210.jpg',
+
+'news/adj32o0000001dl6-img/TOKYOWAVES01.jpg',
+
+'news/adj32o0000001cyc-img/micheline2021.jpg',
+
+'news/adj32o0000001bqh-img/bluefamtasy_mesm202012_01.jpg',
+
+'news/adj32o0000001abo-img/logo.jpg',
+
+'news/adj32o00000018jb-img/adj32o00000018jt.jpg',
+
+'news/adj32o00000017rk-img/adj32o00000017s2.jpg',
+
+'news/adj32o00000016ma-img/adj32o00000016nj.jpg',
+
+'news/adj32o00000016ez-img/logo.jpg',
+
+'news/adj32o000000168u-img/cp1_1.jpg',
+
+'news/adj32o00000012le-img/adj32o00000012mn.jpg',
+
+'news/adj32o00000012xp-img/AK_TYOAM_GuestRoom_Chapter4_Suite_Luxe_Living.jpg',
+
+'news/adj32o00000011fd-img/adj32o00000011fv.jpg',
+
+'news/adj32o00000012pc-img/adj32o00000012pu.jpg',
+
+'news/adj32o0000000scz-img/ird-dinnerimage.jpg',
+
+'news/adj32o0000000dtj-img/cp3-double.jpg',
+
+'news/adj32o00000005uh-img/CP2-44.jpg',
+
+'news/adj32o000000041q-img/thumb_191028.jpg',
+
+	], function(total, loaded){
+	now_percent = Math.ceil(100 * loaded / total);
+	});
+
+	var timer = window.setInterval(function() {
+		if (displaying_percent >= 100) {
+			window.clearInterval(timer);
+			
+$('#vegas').vegas({
+slides: [
+
+{ src: 'adj32o000000199m-img/1029_AK_TYOAM_Lobby_02w1600.jpg'},
+
+{ src: 'adj32o000000199m-img/AK_TYOAM_Restaurant_ChefsTheatre_01w1600.jpg'},
+
+{ src: 'adj32o000000199m-img/AK_TYOAM_GuestRoom_Chapter2_Double_01w1600.jpg'},
+
+{ src: 'adj32o000000199m-img/AK_TYOAM_BathRoom_Chapter4_Suite_Luxew1600.jpg'},
+
+{ src: 'adj32o000000199m-img/AK_TYOAM_Entrancew1600.jpg'},
+
+],
+//overlay: '/cmn/cmn_js/vegas/overlays/02.png', フォルダ『overlays』の中からオーバーレイのパターン画像を選択
+transition: 'fade', //スライドを遷移させる際のアニメーション
+transitionDuration: 4000, //スライドの遷移アニメーションの時間
+delay: 7000, //スライド切り替え時の遅延時間
+animation: 'random', //スライド表示中のアニメーション
+animationDuration: 8000, //スライド表示中のアニメーションの時間
+});
+
+			$('#contents, .bookNow, #footer').hide();
+			$('#loading .waves').removeClass('action');
+			$('#load-text, #bar').fadeOut(1000, function() {
+			setTimeout(function(){
+			$('#loading').addClass('action2');
+			$('.arrowWrap').addClass('action');
+			},500);
+			
+			var wH = $(window).height();
+			$('html, body').css('overflowY', 'visible');
+			$('#contents, .bookNow, #footer').show();
+			$('html, body').css('height','auto');
+			$('body').css('overflowY', 'scroll');
+			$(window).off('.noScroll');
+			/*
+			$('html').css('height',wH + 2 +'px');
+			$('body').css('height',wH + 1 +'px');
+			*/
+
+			$(window).scroll(function(){
+			$('#loading .logo').addClass('action2');
+			$('.arrowWrap').addClass('action2');
+			$('body').addClass('topStart');
+			
+			
+			
+			setTimeout(function(){
+			$('.topMv .tagline').addClass('action');
+			$('#loading').fadeOut(1000);
+			},500);
+			
+setTimeout(function(){
+
+$('.topMv').on('inview', function(event, isInView) {
+if (isInView) {
+$('#wrap').css({backgroundColor: '#051931'});
+}
+});	
+
+$('.topOffers').on('inview', function(event, isInView) {
+if (isInView) {
+$(this).addClass('action');
+$('#wrap').css({backgroundColor: '#051931'});
+}
+});	
+
+$('.topConcept .inr .play').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+	if (isInView) {
+		if (visiblePartY == 'both') {
+			$('.topConcept').addClass('action');
+			$('#wrap').css({backgroundColor: 'rgba(0,0,0,0.4)'});
+		}
+	}
+});
+
+$('.topGuestroom').on('inview', function(event, isInView) {
+if (isInView) {
+$(this).addClass('action');
+}
+});	
+
+$('.topGuestroom .data').on('inview', function(event, isInView) {
+if (isInView) {
+$('#wrap').css({backgroundColor: '#3A6188'});
+$('#header').removeClass('colorOn');
+}
+});
+
+$('.topRestaurant .inr').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topRestaurant').addClass('action');
+$('#wrap').css({backgroundColor: '#DDE7EB'});
+$('#header').addClass('colorOn');
+}
+});	
+
+$('.topRestaurant .title2').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topRestaurant .title2').addClass('action');
+$('.topRestaurant .inr2').addClass('action');
+$('#wrap').css({backgroundColor: '#DDE7EB'});
+}
+});	
+
+$('.topCollabo .inr').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topCollabo').addClass('action');
+$('#wrap').css({backgroundColor: '#F1F1F1'});
+}
+});	
+
+$('.topNews .inr').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topNews').addClass('action');
+$('#wrap').css({backgroundColor: '#F1F1F1'});
+}
+});	
+
+$('.topLocation').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topLocation').addClass('action');
+$('#wrap').css({backgroundColor: '#FFF'});
+}
+});	
+
+$('.bookNow').on('inview', function(event, isInView) {
+if (isInView) {
+$(this).addClass('action');
+}
+});	
+
+},1200);	
+
+});
+
+});
+
+} else {
+			if (displaying_percent < now_percent) {
+				displaying_percent++;
+				$('#load-text span').html(displaying_percent);
+				$('#bar span').css('width', displaying_percent + '%');
+			}
+		}
+	}, 
+	15);
+});
+	
+  } else {
+
+$(function() {
+
+//No Scroll
+$('html, body').css('overflowY', 'hidden');
+$(window).on('touchmove.noScroll', function(e) {
+    e.preventDefault();
+});
+
+$('html,body').animate({ scrollTop: 0 }, '1');
+
+setTimeout(function(){
+$('#loading .waves').addClass('action');
+},200);
+setTimeout(function(){
+$('#loading .logo').addClass('action');
+},1000);
+setTimeout(function(){
+$('#load-text').addClass('action');
+},1500);
+
+Array.prototype.remove = function(element) {
+	  for (var i = 0; i < this.length; i++)
+	    if (this[i] == element) this.splice(i,1); 
+	};
+
+function preload(images, progress) {
+		var total = images.length;
+	    $(images).each(function(){
+			var src = this;
+	        $('<img/>')
+				.attr('src', src)
+				.load(function() {
+					images.remove(src);
+					progress(total, total - images.length);
+				});
+	    });
+	}
+	
+var now_percent = 0;
+var displaying_percent= 0;
+preload([
+
+'adj32o000000199m-img/1029_AK_TYOAM_Lobby_02w1600.jpg',
+
+'adj32o000000199m-img/AK_TYOAM_Restaurant_ChefsTheatre_01w1600.jpg',
+
+'adj32o000000199m-img/AK_TYOAM_GuestRoom_Chapter2_Double_01w1600.jpg',
+
+'adj32o000000199m-img/AK_TYOAM_BathRoom_Chapter4_Suite_Luxew1600.jpg',
+
+'adj32o000000199m-img/AK_TYOAM_Entrancew1600.jpg',
+
+'news/adj32o00000028en-img/breakfast-image.jpg',
+
+'news/adj32o00000025mc-img/blue.jpg',
+
+'news/adj32o00000023z1-img/gekidan_shiki.jpg',
+
+'news/adj32o00000020x4-img/clubmesm_view.jpg',
+
+'news/adj32o0000001qfk-img/adj32o0000001qgv.jpg',
+
+'news/adj32o0000001io2-img/ShowcaseP6160590_840.jpg',
+
+'news/adj32o0000001dn2-img/donperi20201210.jpg',
+
+'news/adj32o0000001dl6-img/TOKYOWAVES01.jpg',
+
+'news/adj32o0000001cyc-img/micheline2021.jpg',
+
+'news/adj32o0000001bqh-img/bluefamtasy_mesm202012_01.jpg',
+
+'news/adj32o0000001abo-img/logo.jpg',
+
+'news/adj32o00000018jb-img/adj32o00000018jt.jpg',
+
+'news/adj32o00000017rk-img/adj32o00000017s2.jpg',
+
+'news/adj32o00000016ma-img/adj32o00000016nj.jpg',
+
+'news/adj32o00000016ez-img/logo.jpg',
+
+'news/adj32o000000168u-img/cp1_1.jpg',
+
+'news/adj32o00000012le-img/adj32o00000012mn.jpg',
+
+'news/adj32o00000012xp-img/AK_TYOAM_GuestRoom_Chapter4_Suite_Luxe_Living.jpg',
+
+'news/adj32o00000011fd-img/adj32o00000011fv.jpg',
+
+'news/adj32o00000012pc-img/adj32o00000012pu.jpg',
+
+'news/adj32o0000000scz-img/ird-dinnerimage.jpg',
+
+'news/adj32o0000000dtj-img/cp3-double.jpg',
+
+'news/adj32o00000005uh-img/CP2-44.jpg',
+
+'news/adj32o000000041q-img/thumb_191028.jpg',
+
+	], function(total, loaded){
+	now_percent = Math.ceil(100 * loaded / total);
+	});
+
+	var timer = window.setInterval(function() {
+		if (displaying_percent >= 100) {
+			window.clearInterval(timer);
+			
+$('#vegas').vegas({
+slides: [
+
+{ src: 'adj32o000000199m-img/1029_AK_TYOAM_Lobby_02w1600.jpg'},
+
+{ src: 'adj32o000000199m-img/AK_TYOAM_Restaurant_ChefsTheatre_01w1600.jpg'},
+
+{ src: 'adj32o000000199m-img/AK_TYOAM_GuestRoom_Chapter2_Double_01w1600.jpg'},
+
+{ src: 'adj32o000000199m-img/AK_TYOAM_BathRoom_Chapter4_Suite_Luxew1600.jpg'},
+
+{ src: 'adj32o000000199m-img/AK_TYOAM_Entrancew1600.jpg'},
+
+],
+//overlay: '/cmn/cmn_js/vegas/overlays/02.png', フォルダ『overlays』の中からオーバーレイのパターン画像を選択
+transition: 'fade', //スライドを遷移させる際のアニメーション
+transitionDuration: 4000, //スライドの遷移アニメーションの時間
+delay: 7000, //スライド切り替え時の遅延時間
+animation: 'random', //スライド表示中のアニメーション
+animationDuration: 8000, //スライド表示中のアニメーションの時間
+});
+
+			$('#contents, .bookNow, #footer').hide();
+			$('#loading .waves').removeClass('action');
+			$('#load-text, #bar').fadeOut(1000, function() {
+			setTimeout(function(){
+			$('#loading').addClass('action2');
+			$('.arrowWrap').addClass('action');
+			},500);
+			
+			var wH = $(window).height(); 
+			$('html, body').css('overflowY', 'visible');
+			$('html').css('height',wH + 2 +'px');
+			$('body').css('height',wH + 1 +'px');
+
+			$(window).scroll(function(){
+			$('body').css('overflowY', 'scroll');
+			$('#loading .logo').addClass('action2');
+			$('.arrowWrap').addClass('action2');
+			$('html, body').css('height','auto');
+			
+			$('body').addClass('topStart');
+			$(window).off('.noScroll');
+			
+			setTimeout(function(){
+			$('.topMv .tagline').addClass('action');
+			$('#loading').fadeOut(1000);
+			$('#contents, .bookNow, #footer').show();
+			},1000);
+			
+setTimeout(function(){
+
+$('.topMv').on('inview', function(event, isInView) {
+if (isInView) {
+$('#wrap').css({backgroundColor: '#051931'});
+}
+});	
+
+$('.topOffers').on('inview', function(event, isInView) {
+if (isInView) {
+$(this).addClass('action');
+$('#wrap').css({backgroundColor: '#051931'});
+}
+});	
+
+$('.topConcept .inr .play').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+	if (isInView) {
+		if (visiblePartY == 'both') {
+			$('.topConcept').addClass('action');
+			$('#wrap').css({backgroundColor: 'rgba(0,0,0,0.4)'});
+		}
+	}
+});
+
+$('.topGuestroom').on('inview', function(event, isInView) {
+if (isInView) {
+$(this).addClass('action');
+}
+});	
+
+$('.topGuestroom .data').on('inview', function(event, isInView) {
+if (isInView) {
+$('#wrap').css({backgroundColor: '#3A6188'});
+$('#header').removeClass('colorOn');
+}
+});
+
+$('.topRestaurant .inr').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topRestaurant').addClass('action');
+$('#wrap').css({backgroundColor: '#DDE7EB'});
+$('#header').addClass('colorOn');
+}
+});	
+
+$('.topRestaurant .title2').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topRestaurant .title2').addClass('action');
+$('.topRestaurant .inr2').addClass('action');
+$('#wrap').css({backgroundColor: '#DDE7EB'});
+}
+});	
+
+$('.topCollabo .inr').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topCollabo').addClass('action');
+$('#wrap').css({backgroundColor: '#F1F1F1'});
+}
+});	
+
+$('.topNews .inr').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topNews').addClass('action');
+$('#wrap').css({backgroundColor: '#F1F1F1'});
+}
+});	
+
+$('.topLocation').on('inview', function(event, isInView) {
+if (isInView) {
+$('.topLocation').addClass('action');
+$('#wrap').css({backgroundColor: '#FFF'});
+}
+});	
+
+$('.bookNow').on('inview', function(event, isInView) {
+if (isInView) {
+$(this).addClass('action');
+}
+});	
+
+},1200);	
+
+});
+
+});
+
+} else {
+			if (displaying_percent < now_percent) {
+				displaying_percent++;
+				$('#load-text span').html(displaying_percent);
+				$('#bar span').css('width', displaying_percent + '%');
+			}
+		}
+	}, 
+	15);
+});
+
+
+  }
+}());
+</script>
+
+<link href="https://www.mesm.jp/cmn/cmn_js/slick/slick-theme.css" rel="stylesheet" type="text/css">
+<link href="https://www.mesm.jp/cmn/cmn_js/slick/slick.css" rel="stylesheet" type="text/css">
+<script src="https://www.mesm.jp/cmn/cmn_js/slick/slick.min.js" type="text/javascript"></script>
+<script>
+$(function() {
+$(".offerSlider").slick({
+dots: true,
+infinite: true,
+slidesToShow: 3,
+slidesToScroll: 1,
+autoplaySpeed: 2000,
+responsive: [
+    {
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    },
+	{
+      breakpoint: 960,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 640,
+      settings: {
+	  centerMode: true,
+	  centerPadding: '40px',
+	  arrows: false,
+	  dots: true,
+	  slidesToShow: 1,
+	  slidesToScroll: 1
+      }
+    }
+  ]
+});
+$('.guestSlider').on('init', function(event, slick) {
+$(this).parent().prepend('<div class="slick-counter"><span class="cc">0<span class="current"></span></span> / 0<span class="total"></span></div>');
+$('.current').text(slick.currentSlide + 1);
+$('.total').text(slick.slideCount);
+})
+.slick({
+arrows: true,
+dots: true,
+infinite: true,
+slidesToShow: 1,
+slidesToScroll: 1,
+fade:true,
+asNavFor: '.guestSliderImg',
+responsive: [
+    {
+      breakpoint: 960,
+      settings: {
+	  infinite: true,
+	  arrows: false,
+	  dots: true,
+	  slidesToShow: 1,
+	  slidesToScroll: 1,
+	  adaptiveHeight: true,
+	  fade:true,
+      }
+    }
+  ]
+})
+.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+$('.slick-counter .current').text(nextSlide + 1);
+});
+$('.guestSliderImg').slick({
+arrows: false,
+dots: false,
+infinite: true,
+slidesToShow: 1,
+slidesToScroll: 1,
+fade:true,
+});
+});
+</script>
+
+<link href="https://www.mesm.jp/cmn/cmn_js/modal-video/modal-video.min.css" rel="stylesheet" type="text/css">
+<script src="https://www.mesm.jp/cmn/cmn_js/modal-video/jquery-modal-video.min.js" type="text/javascript"></script>
+<script>
+$(function() {
+$(".js-modal-btn").modalVideo();
+});
+</script>
+
+<script>
+$(function() {
+$('.topOffers .inr #tab ul li .box').matchHeight();
+});
+</script>
+<script src="/cmn/cmn_js/litepicker-polyfills-ie11.js"></script>
+<script src="/cmn/cmn_js/litepicker.js"></script><iframe width="1" height="1" style="position:absolute; top:-9999px; left: -9999px; border-style: none" id="universe_cookie_sync" src="//javascript:;"></iframe>
+<script src="/cmn/cmn_js/sugar.min.js"></script>
+<script src="/cmn/cmn_js/holiday_jp.min.js"></script>
+<script src="/cmn/cmn_js/reservation.js"></script>
+<!--/UNIQ SCRIPT-->
+
+<script type="text/javascript">
+(function(a,b,c,d,e,f,g){
+e='//d.nakanohito.jp/ua/uwa.js';
+a['UlGlobalObject']=d;a[d]=a[d]||function(){(a[d].q=a[d].q||[]).push(arguments)};
+a[d].l=1*new Date();
+f=b.createElement(c),g=b.getElementsByTagName(c)[0];
+f.async=1;f.src=e;g.parentNode.insertBefore(f,g)
+})(window,document,'script','_uao');
+
+_uao('init', '20144375', {fpf: false});
+_uao('set', 'lg_id', '');
+_uao('send', 'pv');
+</script>
+
+
+<div id="topcontrol" title="Scroll Back to Top" style="position: fixed; bottom: 20px; right: 20px; opacity: 1; cursor: pointer;"><a href="#wrap"><span>▲ページトップへ</span></a></div><div class="litepicker" data-plugins="" style="display: none; position: absolute; z-index: 9999; top: 1199px; left: 320.703px;"><div class="container__main"><div class="container__months columns-2"><div class="month-item no-previous-month"><div class="month-item-header"><button type="button" class="button-previous-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M7.919 0l2.748 2.667L5.333 8l5.334 5.333L7.919 16 0 8z" fill-rule="nonzero"></path></svg></button><div><strong class="month-item-name">7月</strong><span class="month-item-year">2021</span></div><button type="button" class="button-next-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.748 16L0 13.333 5.333 8 0 2.667 2.748 0l7.919 8z" fill-rule="nonzero"></path></svg></button></div><div class="month-item-weekdays-row"><div title="月曜日">月</div><div title="火曜日">火</div><div title="水曜日">水</div><div title="木曜日">木</div><div title="金曜日">金</div><div title="土曜日">土</div><div title="日曜日">日</div></div><div class="container__days"><div></div><div></div><div></div><div class="day-item is-locked" data-time="1625065200000" tabindex="-1">1</div><div class="day-item is-locked" data-time="1625151600000" tabindex="-1">2</div><div class="day-item is-locked" data-time="1625238000000" tabindex="-1">3</div><div class="day-item is-locked" data-time="1625324400000" tabindex="-1">4</div><div class="day-item is-locked" data-time="1625410800000" tabindex="-1">5</div><div class="day-item is-locked" data-time="1625497200000" tabindex="-1">6</div><div class="day-item is-locked" data-time="1625583600000" tabindex="-1">7</div><div class="day-item is-today" data-time="1625670000000" tabindex="0">8</div><div class="day-item" data-time="1625756400000" tabindex="0">9</div><div class="day-item saturday" data-time="1625842800000" tabindex="0">10</div><div class="day-item sunday" data-time="1625929200000" tabindex="0">11</div><div class="day-item" data-time="1626015600000" tabindex="0">12</div><div class="day-item" data-time="1626102000000" tabindex="0">13</div><div class="day-item" data-time="1626188400000" tabindex="0">14</div><div class="day-item" data-time="1626274800000" tabindex="0">15</div><div class="day-item" data-time="1626361200000" tabindex="0">16</div><div class="day-item is-start-date saturday" data-time="1626447600000" tabindex="0">17</div><div class="day-item is-end-date sunday" data-time="1626534000000" tabindex="0">18</div><div class="day-item holiday" data-time="1626620400000" tabindex="0">19</div><div class="day-item" data-time="1626706800000" tabindex="0">20</div><div class="day-item" data-time="1626793200000" tabindex="0">21</div><div class="day-item" data-time="1626879600000" tabindex="0">22</div><div class="day-item" data-time="1626966000000" tabindex="0">23</div><div class="day-item saturday" data-time="1627052400000" tabindex="0">24</div><div class="day-item sunday" data-time="1627138800000" tabindex="0">25</div><div class="day-item" data-time="1627225200000" tabindex="0">26</div><div class="day-item" data-time="1627311600000" tabindex="0">27</div><div class="day-item" data-time="1627398000000" tabindex="0">28</div><div class="day-item" data-time="1627484400000" tabindex="0">29</div><div class="day-item" data-time="1627570800000" tabindex="0">30</div><div class="day-item saturday" data-time="1627657200000" tabindex="0">31</div></div></div><div class="month-item"><div class="month-item-header"><button type="button" class="button-previous-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M7.919 0l2.748 2.667L5.333 8l5.334 5.333L7.919 16 0 8z" fill-rule="nonzero"></path></svg></button><div><strong class="month-item-name">8月</strong><span class="month-item-year">2021</span></div><button type="button" class="button-next-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.748 16L0 13.333 5.333 8 0 2.667 2.748 0l7.919 8z" fill-rule="nonzero"></path></svg></button></div><div class="month-item-weekdays-row"><div title="月曜日">月</div><div title="火曜日">火</div><div title="水曜日">水</div><div title="木曜日">木</div><div title="金曜日">金</div><div title="土曜日">土</div><div title="日曜日">日</div></div><div class="container__days"><div></div><div></div><div></div><div></div><div></div><div></div><div class="day-item sunday" data-time="1627743600000" tabindex="0">1</div><div class="day-item" data-time="1627830000000" tabindex="0">2</div><div class="day-item" data-time="1627916400000" tabindex="0">3</div><div class="day-item" data-time="1628002800000" tabindex="0">4</div><div class="day-item" data-time="1628089200000" tabindex="0">5</div><div class="day-item" data-time="1628175600000" tabindex="0">6</div><div class="day-item saturday" data-time="1628262000000" tabindex="0">7</div><div class="day-item sunday" data-time="1628348400000" tabindex="0">8</div><div class="day-item" data-time="1628434800000" tabindex="0">9</div><div class="day-item" data-time="1628521200000" tabindex="0">10</div><div class="day-item holiday" data-time="1628607600000" tabindex="0">11</div><div class="day-item" data-time="1628694000000" tabindex="0">12</div><div class="day-item" data-time="1628780400000" tabindex="0">13</div><div class="day-item saturday" data-time="1628866800000" tabindex="0">14</div><div class="day-item sunday" data-time="1628953200000" tabindex="0">15</div><div class="day-item" data-time="1629039600000" tabindex="0">16</div><div class="day-item" data-time="1629126000000" tabindex="0">17</div><div class="day-item" data-time="1629212400000" tabindex="0">18</div><div class="day-item" data-time="1629298800000" tabindex="0">19</div><div class="day-item" data-time="1629385200000" tabindex="0">20</div><div class="day-item saturday" data-time="1629471600000" tabindex="0">21</div><div class="day-item sunday" data-time="1629558000000" tabindex="0">22</div><div class="day-item" data-time="1629644400000" tabindex="0">23</div><div class="day-item" data-time="1629730800000" tabindex="0">24</div><div class="day-item" data-time="1629817200000" tabindex="0">25</div><div class="day-item" data-time="1629903600000" tabindex="0">26</div><div class="day-item" data-time="1629990000000" tabindex="0">27</div><div class="day-item saturday" data-time="1630076400000" tabindex="0">28</div><div class="day-item sunday" data-time="1630162800000" tabindex="0">29</div><div class="day-item" data-time="1630249200000" tabindex="0">30</div><div class="day-item" data-time="1630335600000" tabindex="0">31</div></div></div></div></div><div class="container__tooltip"></div></div><section id="ensModalWrapper" role="dialog" aria-labelledby="ensTitle" aria-describedby="ensDescription" focusable="true" aria-modal="true"><div class="ensModal" aria-label="Consent Configuration"><header class="ensTitle" id="ensTitle">クッキーの詳細設定</header><div class="consentDescription" id="ensDescription">undefined</div><hr><div class="ensToggleRowWrapper"><div class="ensToggleRow"><label for="Strictly Necessary CookiesSlide" class="ensToggleLabel">必須クッキー<div class="card"><input class="ensCheckbox" aria-describedby="Strictly Necessary Cookiesdescription" type="checkbox" id="Strictly Necessary CookiesSlide" name="Strictly Necessary CookiesSlide" checked="" disabled="true"><span class="switch"></span><span class="toggle"></span></div></label><div class="description" id="Strictly Necessary Cookiesdescription">必須クッキーは、当サイトで提供するサービスや機能を利用する上で不可欠なクッキーを指し、セキュリティーや利便性を高めるためなど当サイトが最適に機能するよう保ちます。利用者はブラウザの設定により、これらのクッキーを無効化および削除することができます。ただし、その場合、当サイトの一部のページもしくはサービスが正しく動作しない場合がございますのであらかじめご了承ください。</div></div><hr><div class="ensToggleRow"><label for="Performance CookiesSlide" class="ensToggleLabel">パフォーマンスクッキー<div class="card"><input class="ensCheckbox" aria-describedby="Performance Cookiesdescription" type="checkbox" id="Performance CookiesSlide" name="Performance CookiesSlide" checked=""><span class="switch"></span><span class="toggle"></span></div></label><div class="description" id="Performance Cookiesdescription">パフォーマンスクッキーは、当サイトの利用状況や利用者によるアクセス状況に関する情報を収集します。これらのクッキーは、当サイトの利用者が訪問したページや滞在時間のほか、エラーメッセージのトラブルの有無など、利用者の通信状況を当社側で適切に把握し、当サイトの性能を改善するために使用されます。当サイトでは、Google アナリティクスなどの第三者によって提供されるサービスを利用し、利用者の利用状況を分析し、当サイトの性能改善のためにこれらのクッキーを使用しています。Google アナリティクスによるデータの取り扱い方法は、Google アナリティクスのヘルプページをご参照ください。</div></div><hr><div class="ensToggleRow"><label for="Targeting CookiesSlide" class="ensToggleLabel">ターゲティングクッキー<div class="card"><input class="ensCheckbox" aria-describedby="Targeting Cookiesdescription" type="checkbox" id="Targeting CookiesSlide" name="Targeting CookiesSlide"><span class="switch"></span><span class="toggle"></span></div></label><div class="description" id="Targeting Cookiesdescription">ターゲティングクッキーは、コンテンツのパーソナライゼーションやターゲティング広告など、マーケティング目的で利用されるクッキーです。これらのクッキーは、利用者の当サイトのアクセス情報やログイン時の属性情報などを記録します。当サイトでこれらのクッキーを使用することで、利用者の情報がほかのウェブサイトのアクセス情報などに関連付けられて第三者の広告サービスなどに利用されることがあります。</div></div><hr></div><div class="ensButtons"><button id="ensCancel" class="button raised grey" tabindex="0" aria-label="Close Consent Modal"><div class="ensCenter">キャンセル</div><paper-ripple fit=""></paper-ripple></button><button id="ensSave" class="button raised blue" tabindex="0" aria-label="Save Consent Preferences"><div class="ensCenter" fit="">保存</div><paper-ripple fit=""></paper-ripple></button></div></div></section><section><div id="ensNotifyBanner" class="ensNotifyBanner" role="dialog" aria-label="Consent Banner" aria-describedby="ensBannerDescription"><div id="ensBannerDescription"><div id="NotifyDescription"><span style="color: #fff;">当ウェブサイトでは、サービスの向上、またお客様により適したサービスを提供するため、クッキーを使用しています。また、お客様に合ったコンテンツや広告を表示させることを目的としてクッキーを使用する場合があります。</span><br><a href="https://www.jre-hotels.jp/special/nihonhotel-cookiepolicy-jn.html"><u><span style="color: #a19b6c; text-decoration:underline; text-decoration-color: #a19b6c;">クッキーポリシー</span></u></a>&emsp;&emsp;<a href="javascript:Bootstrapper.gateway.closeBanner();Bootstrapper.gateway.openModal();"><u><span style="color: #a19b6c; text-decoration:underline; text-decoration-color:#a19b6c;">クッキーの詳細設定</span></u></a></div></div><div class="ensButtons"><button id="ensCloseBanner" class="button raised blue" aria-label="Close consent Widget">OK</button></div><div class="ensClear"></div></div></section><div class="litepicker" data-plugins="" style="display: none;"><div class="container__main"><div class="container__months columns-2"><div class="month-item no-previous-month"><div class="month-item-header"><button type="button" class="button-previous-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M7.919 0l2.748 2.667L5.333 8l5.334 5.333L7.919 16 0 8z" fill-rule="nonzero"></path></svg></button><div><strong class="month-item-name">7月</strong><span class="month-item-year">2021</span></div><button type="button" class="button-next-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.748 16L0 13.333 5.333 8 0 2.667 2.748 0l7.919 8z" fill-rule="nonzero"></path></svg></button></div><div class="month-item-weekdays-row"><div title="月曜日">月</div><div title="火曜日">火</div><div title="水曜日">水</div><div title="木曜日">木</div><div title="金曜日">金</div><div title="土曜日">土</div><div title="日曜日">日</div></div><div class="container__days"><div></div><div></div><div></div><div class="day-item is-locked" data-time="1625065200000" tabindex="-1">1</div><div class="day-item is-locked" data-time="1625151600000" tabindex="-1">2</div><div class="day-item is-locked" data-time="1625238000000" tabindex="-1">3</div><div class="day-item is-locked" data-time="1625324400000" tabindex="-1">4</div><div class="day-item is-locked" data-time="1625410800000" tabindex="-1">5</div><div class="day-item is-locked" data-time="1625497200000" tabindex="-1">6</div><div class="day-item is-locked" data-time="1625583600000" tabindex="-1">7</div><div class="day-item is-today is-start-date is-end-date" data-time="1625670000000" tabindex="0">8</div><div class="day-item" data-time="1625756400000" tabindex="0">9</div><div class="day-item saturday" data-time="1625842800000" tabindex="0">10</div><div class="day-item sunday" data-time="1625929200000" tabindex="0">11</div><div class="day-item" data-time="1626015600000" tabindex="0">12</div><div class="day-item" data-time="1626102000000" tabindex="0">13</div><div class="day-item" data-time="1626188400000" tabindex="0">14</div><div class="day-item" data-time="1626274800000" tabindex="0">15</div><div class="day-item" data-time="1626361200000" tabindex="0">16</div><div class="day-item saturday" data-time="1626447600000" tabindex="0">17</div><div class="day-item sunday" data-time="1626534000000" tabindex="0">18</div><div class="day-item holiday" data-time="1626620400000" tabindex="0">19</div><div class="day-item" data-time="1626706800000" tabindex="0">20</div><div class="day-item" data-time="1626793200000" tabindex="0">21</div><div class="day-item" data-time="1626879600000" tabindex="0">22</div><div class="day-item" data-time="1626966000000" tabindex="0">23</div><div class="day-item saturday" data-time="1627052400000" tabindex="0">24</div><div class="day-item sunday" data-time="1627138800000" tabindex="0">25</div><div class="day-item" data-time="1627225200000" tabindex="0">26</div><div class="day-item" data-time="1627311600000" tabindex="0">27</div><div class="day-item" data-time="1627398000000" tabindex="0">28</div><div class="day-item" data-time="1627484400000" tabindex="0">29</div><div class="day-item" data-time="1627570800000" tabindex="0">30</div><div class="day-item saturday" data-time="1627657200000" tabindex="0">31</div></div></div><div class="month-item"><div class="month-item-header"><button type="button" class="button-previous-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M7.919 0l2.748 2.667L5.333 8l5.334 5.333L7.919 16 0 8z" fill-rule="nonzero"></path></svg></button><div><strong class="month-item-name">8月</strong><span class="month-item-year">2021</span></div><button type="button" class="button-next-month"><svg width="11" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.748 16L0 13.333 5.333 8 0 2.667 2.748 0l7.919 8z" fill-rule="nonzero"></path></svg></button></div><div class="month-item-weekdays-row"><div title="月曜日">月</div><div title="火曜日">火</div><div title="水曜日">水</div><div title="木曜日">木</div><div title="金曜日">金</div><div title="土曜日">土</div><div title="日曜日">日</div></div><div class="container__days"><div></div><div></div><div></div><div></div><div></div><div></div><div class="day-item sunday" data-time="1627743600000" tabindex="0">1</div><div class="day-item" data-time="1627830000000" tabindex="0">2</div><div class="day-item" data-time="1627916400000" tabindex="0">3</div><div class="day-item" data-time="1628002800000" tabindex="0">4</div><div class="day-item" data-time="1628089200000" tabindex="0">5</div><div class="day-item" data-time="1628175600000" tabindex="0">6</div><div class="day-item saturday" data-time="1628262000000" tabindex="0">7</div><div class="day-item sunday" data-time="1628348400000" tabindex="0">8</div><div class="day-item" data-time="1628434800000" tabindex="0">9</div><div class="day-item" data-time="1628521200000" tabindex="0">10</div><div class="day-item holiday" data-time="1628607600000" tabindex="0">11</div><div class="day-item" data-time="1628694000000" tabindex="0">12</div><div class="day-item" data-time="1628780400000" tabindex="0">13</div><div class="day-item saturday" data-time="1628866800000" tabindex="0">14</div><div class="day-item sunday" data-time="1628953200000" tabindex="0">15</div><div class="day-item" data-time="1629039600000" tabindex="0">16</div><div class="day-item" data-time="1629126000000" tabindex="0">17</div><div class="day-item" data-time="1629212400000" tabindex="0">18</div><div class="day-item" data-time="1629298800000" tabindex="0">19</div><div class="day-item" data-time="1629385200000" tabindex="0">20</div><div class="day-item saturday" data-time="1629471600000" tabindex="0">21</div><div class="day-item sunday" data-time="1629558000000" tabindex="0">22</div><div class="day-item" data-time="1629644400000" tabindex="0">23</div><div class="day-item" data-time="1629730800000" tabindex="0">24</div><div class="day-item" data-time="1629817200000" tabindex="0">25</div><div class="day-item" data-time="1629903600000" tabindex="0">26</div><div class="day-item" data-time="1629990000000" tabindex="0">27</div><div class="day-item saturday" data-time="1630076400000" tabindex="0">28</div><div class="day-item sunday" data-time="1630162800000" tabindex="0">29</div><div class="day-item" data-time="1630249200000" tabindex="0">30</div><div class="day-item" data-time="1630335600000" tabindex="0">31</div></div></div></div></div></div>
+<script type="text/javascript" id="mierucajs">window.__fid=window.__fid||[];__fid.push([272494233]);
+(function(){function b(){if("undefined"==typeof window.__fjsld){window.__fjsld=1;var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.id="fjssync";var c=new Date;a.src=("https:"==document.location.protocol?"https":"http")+"://hm.mieru-ca.com/service/js/mieruca-hm.js?v\x3d"+c.getTime();c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)}}setTimeout(b,500);"complete"!=document.readyState?window.attachEvent?window.attachEvent("onload",b):window.addEventListener("load",
+b,!1):b()})();</script>
+</body></html>
